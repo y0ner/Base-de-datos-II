@@ -1,0 +1,11 @@
+	  |user            |password         |
+---------------------------------------------|
+mysql	  |isaza           |RootPass@123     |
+sql server|sa	           |RootPass@123     |
+postgresql|root	           |root             |	
+oracle	  |admin: sys	   |root             |   
+PDB	   default: system |root             |
+ALMACEN	  |system	   |root             |
+ALMACEN2022_ORACLE |isaza  |root	     |
+---------------------------------------------|
+django	  |isaza           |root

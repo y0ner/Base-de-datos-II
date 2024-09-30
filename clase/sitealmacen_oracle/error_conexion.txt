@@ -1,0 +1,26 @@
+"Iniciar primero en la virtual"
+
+sudo add-apt-repository universe
+sudo add-apt-repository multiverse
+sudo apt-get update
+
+sudo apt-get install libaio1
+
+apt-cache search libaio
+
+wget http://deb.debian.org/debian/pool/main/liba/libaio/libaio1_0.3.112-3_amd64.deb
+
+sudo dpkg -i libaio1_0.3.112-3_amd64.deb
+
+SELECT table_name FROM user_tables;
+
+GRANT DROP ANY TABLE TO ISAZA;
+GRANT DROP ANY INDEX TO ISAZA;
+GRANT CREATE ANY TABLE TO ISAZA;
+GRANT ALTER ANY TABLE TO ISAZA;
+
+SELECT * FROM all_objects WHERE owner = 'ISAZA';
+
+DROP TABLE ISAZA."DJANGO_CONTENT_TYPE" CASCADE CONSTRAINTS;
+DROP TABLE ISAZA."DJANGO_MIGRATIONS" CASCADE CONSTRAINTS;
+DROP INDEX ISAZA."DJANGO_CO_APP_LABEL_76BD3D3B_U";

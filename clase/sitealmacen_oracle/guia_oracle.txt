@@ -1,0 +1,2 @@
+Para conectar mysql con Django debemos copiar los siguientes comandos:
+
