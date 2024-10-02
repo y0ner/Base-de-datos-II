@@ -1,4 +1,4 @@
-#!/home/isaza/main_Django/clase/virtual_main/bin/python3
+#!/home/isaza/Base-de-datos-II/clase/virtual_main/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

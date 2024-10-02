@@ -2,7 +2,7 @@
 ---------------------------------------------|
 mysql	  |isaza           |RootPass@123     |
 sql server|sa	           |RootPass@123     |
-postgresql|root	           |root             |	
+postgresql|postgres           |root             |	
 oracle	  |admin: sys	   |root             |   
 PDB	   default: system |root             |
 ALMACEN	  |system	   |root             |

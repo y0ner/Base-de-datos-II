@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/isaza/main_Django/clase/virtual_main"
+set -gx VIRTUAL_ENV "/home/isaza/Base-de-datos-II/clase/virtual_main"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
