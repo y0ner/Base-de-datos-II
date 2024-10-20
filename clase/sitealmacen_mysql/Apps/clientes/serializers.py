@@ -5,11 +5,11 @@ from rest_framework import serializers
 from Apps.clientes.models import Cliente
 
 class ClienteSerializer(serializers.ModelSerializer):
-    len_nombreCliente = serializers.SerializerMethodField()
+    # len_nombreCliente = serializers.SerializerMethodField()
     class Meta:
         model = Cliente
-        # fields = "__all__"
-        exclude = ['passwordCliente']
+        fields = "__all__"
+        # exclude = ['passwordCliente']
         # fields = (
         #     'pk',
         #     'nombreCliente',
@@ -19,15 +19,15 @@ class ClienteSerializer(serializers.ModelSerializer):
         #     'passwordCliente',
         # )
 
-    def get_len_nombreCliente(self, object):
-        length = len(object.nombreCliente)
-        return length
+    # def get_len_nombreCliente(self, object):
+    #     length = len(object.nombreCliente)
+    #     return length
 
-    def validate(self, data):
-        if data['nombreCliente'] == data['direccionCliente']:
-            raise serializers.ValidationError('Nombre y Correo No pueden ser iguales')
-        else:
-            return data
+    # def validate(self, data):
+    #     if data['nombreCliente'] == data['direccionCliente']:
+    #         raise serializers.ValidationError('Nombre y Correo No pueden ser iguales')
+    #     else:
+    #         return data
 
     def validate_nombreCliente(self, value):
         if len(value) < 3:
@@ -35,8 +35,8 @@ class ClienteSerializer(serializers.ModelSerializer):
         else:
             return value
 
-
-class ClienteListSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Cliente
-        fields = ['nombreCliente', 'direccionCliente', 'telefonoCliente']
+    def validate_passwordCliente(self, value):
+        if len(value) < 8:
+            raise serializers.ValidationError('El Password debe tener mayor de 8 caracteres')
+        else:
+            return value

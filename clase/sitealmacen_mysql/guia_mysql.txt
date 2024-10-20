@@ -20,6 +20,8 @@ pip install djangorestframework
 
 pip install django-cors-headers
 
+sudo chown -R isaza:isaza virtual_main/
+
 python manage.py migrate
 
 pip freeze > requirements.txt

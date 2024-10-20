@@ -1,2 +1,18 @@
 Para conectar mysql con Django debemos copiar los siguientes comandos:
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'mssql',
+        'NAME': 'almacen2022_sqlserver',
+        'USER': 'sa',
+        'PASSWORD': 'Root@24!',
+        'HOST': 'localhost',
+        'PORT': '1433',
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',
+            'Encrypt': 'yes',  # Habilita el cifrado
+            'TrustServerCertificate': 'yes',  # Desactiva la verificación del certificado SSL
+        },
+    }
+}
+

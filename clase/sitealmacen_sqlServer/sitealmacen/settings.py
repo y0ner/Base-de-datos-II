@@ -80,24 +80,25 @@ WSGI_APPLICATION = 'sitealmacen.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
         'NAME': 'almacen2022_sqlserver',
         'USER': 'sa',
-        'PASSWORD': 'RootPass@123',
+        'PASSWORD': 'Root@24!',
         'HOST': 'localhost',
         'PORT': '1433',
         'OPTIONS': {
-    'driver': 'ODBC Driver 18 for SQL Server',
-    'encrypt': 'no',
-    'trust_server_certificate': 'yes',
-    'authentication': 'SQL Password',
-}
-
+            'driver': 'ODBC Driver 17 for SQL Server',
+            'Encrypt': 'yes',  # Habilita el cifrado
+            'TrustServerCertificate': 'yes',  # Desactiva la verificación del certificado SSL
+        },
     }
 }
+
+
+
+
 
 
 

@@ -1,5 +1,7 @@
 Para conectar mysql con Django debemos copiar los siguientes comandos:
 
+sudo apt-get install libpq-dev
+
 pip install psycopg2
 
 pip install psycopg2-binary

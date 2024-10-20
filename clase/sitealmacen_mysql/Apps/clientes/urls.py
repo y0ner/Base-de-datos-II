@@ -1,11 +1,9 @@
-"""
-Envolviendo Vistas de Api
-"""
-
 from django.urls import path
-from Apps.clientes.views import cliente_list, cliente_detail
+from Apps.clientes.views import ClienteList, ClienteDetail
+
+app_name = "clientes"
 
 urlpatterns = [
-    path('', cliente_list),
-    path('<int:pk>/', cliente_detail),
+    path('', ClienteList.as_view(), name='cliente-list'),
+    path('<int:pk>/', ClienteDetail.as_view(), name='cliente-detail'),
 ]

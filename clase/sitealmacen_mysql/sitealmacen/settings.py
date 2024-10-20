@@ -86,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'almacen2022_mysql',
         'USER': 'isaza',
-        'PASSWORD': 'RootPass@123',
+        'PASSWORD': 'Root@24!',
         'HOST': 'localhost',
         'PORT': '3306'
 
@@ -136,6 +136,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+#Define quien y quien no puede acceder a la API
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8000',
