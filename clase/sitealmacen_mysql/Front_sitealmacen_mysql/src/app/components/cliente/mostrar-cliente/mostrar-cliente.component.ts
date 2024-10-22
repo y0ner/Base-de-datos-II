@@ -23,6 +23,7 @@ export class MostrarClienteComponent implements OnInit{
 
   ngOnInit(): void {
     this.mostrarClientes()
+    console.log("probando.....")
   }
 
   mostrarClientes() {
