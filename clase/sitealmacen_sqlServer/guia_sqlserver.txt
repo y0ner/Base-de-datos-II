@@ -16,3 +16,8 @@ DATABASES = {
     }
 }
 
+sudo chown -R isaza:isaza ~/Main_Django/virtual2/
+
+source ~/Main_Django/virtual3/bin/activate
+
+sudo chown -R isaza:isaza ~/Main_Django/virtual2/

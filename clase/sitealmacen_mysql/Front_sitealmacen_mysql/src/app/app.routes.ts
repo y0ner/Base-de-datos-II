@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-
 import { MostrarClienteComponent } from './components/cliente/mostrar-cliente/mostrar-cliente.component';
 import { CrearClienteComponent } from './components/cliente/crear-cliente/crear-cliente.component';
 import { ActualizarClienteComponent } from './components/cliente/actualizar-cliente/actualizar-cliente.component';
