@@ -53,4 +53,13 @@ Para aplicar alguna de estas opciones temporalmente durante el pull, podrías us
 
     git stash
 
-    
+10. comando para mapera procesos en puertos 
+ 
+    sudo lsof -i :4200
+    kill -9 PID
+
+11. Aplicar cambios de un commit remoto especifico mas una carpeta especifica 
+
+    git fetch origin
+    git checkout b8c8ee067f4bc80bad333689551f25535b1eab12 -- frontend-Django1/
+    git log origin/<nombre_de_la_rama>
