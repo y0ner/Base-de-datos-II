@@ -1,5 +1,9 @@
 clase/virtual_main/
 clase/sitealmacen_oracle/virtual3/
 clase/sitealmacen_sqlServer/virtual4/
+<<<<<<< HEAD
 /home/dairo/Base-de-datos-II/gestion_inventario/gestion_inventario/settings.py
 gestion_inventario/gestion_inventario/settings.py
+=======
+gestion_inventario/gestion_inventario/settings.py
+>>>>>>> c1a6511a (1)
