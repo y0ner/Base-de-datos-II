@@ -19,8 +19,9 @@
                     <div class="p-inputgroup mb-1">
                         <span class="p-inputgroup-addon"><i class="pi pi-fw pi-qrcode"></i></span>
                         <p-treeSelect class="md:w-10rem w-12" containerStyleClass="w-12" [options]="categories"
-                        formControlName="categoria" placeholder="Selecciona una categoría" selectionMode="single"
-                            [filter]="true" />
+                            formControlName="categoria" placeholder="Seleccione una categoria" [showClear]="true"
+                            selectionMode="single">
+                        </p-treeSelect>
                     </div>
                 </div>
 

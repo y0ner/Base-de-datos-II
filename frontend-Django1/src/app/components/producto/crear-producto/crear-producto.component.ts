@@ -25,7 +25,7 @@ import { TreeNode } from 'primeng/api';
   providers: [MessageService]
   
 })
-export class CrearProductoComponent implements OnInit {
+export class CrearProductoComponent {
   public form: FormGroup; // Declarar la propiedad form
   categories: TreeNode[] = [];
   selectedCategory: TreeNode | undefined;
@@ -40,20 +40,9 @@ export class CrearProductoComponent implements OnInit {
     // private messageService: MessageService,
     private router: Router,
   ) { 
-    // Inicializar el formulario en el constructor
-    // this.form = this.formBuilder.group({
-    //   nombre: ['', [Validators.required]],
-    //   categoria: ['', [Validators.required]],
-    //   descripcion: ['', [Validators.required]],
-    //   precio: ['', [Validators.required]],
-    //   stock_actual: ['', [Validators.required]],
-    //   stock_minimo: ['', [Validators.required]],
-    // });
+    
     this.form = this.formBuilder.group({
-      categoria: this.formBuilder.group({
-        nombre: ['', Validators.required],
-        descripcion: ['', Validators.required],
-      }),
+      categoria: ['', Validators.required],
       nombre: ['', Validators.required],
       descripcion: [''],
       precio: [null, Validators.required],
@@ -88,8 +77,7 @@ export class CrearProductoComponent implements OnInit {
     }
 
     const formValue: ProductoI = this.form.value;
-    // const formValue = {ProductoI: this.form.value, categoria: this.selectedCategory?.data };
-    console.log(formValue);
+    formValue.categoria = this.form.value.categoria.data;
     this.productoService.createProducto(formValue).subscribe(
       () => {
         this.messageService.add({

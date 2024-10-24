@@ -39,15 +39,7 @@ export class ActualizarClienteComponent implements OnInit{
     // private messageService: MessageService,
     private router: Router,
     private route: ActivatedRoute,
-  ) { 
-    // Inicializar el formulario en el constructor
-    // this.form = this.formBuilder.group({
-    //   nombre: ['', [Validators.required]],
-    //   direccion: ['', [Validators.required]],
-    //   telefono: ['', [Validators.required]],
-    //   email: ['', [Validators.required, Validators.email]],
-    // });
-  }
+  ) { }
 
 
   ngOnInit(): void {
@@ -73,11 +65,7 @@ export class ActualizarClienteComponent implements OnInit{
     const id: number =  this.form.value.id
     this.clienteService.updateCliente(id, formValue).subscribe(
       () => {
-        // console.log('Se ha creado correctamente');
-    //     setTimeout(()=>{                  
-    //       this.messageService.add({severity:'success', summary: 'Notificación', detail: 'Cliente Actualizado', life:5000});
 
-    //  }, 0);
         this.router.navigateByUrl('clientes');
 
       },

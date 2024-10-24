@@ -96,18 +96,7 @@ WSGI_APPLICATION = 'gestion_inventario.wsgi.application'
 
 
 #conexion postgres
-"""
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gestion_inventario',
-        'USER': 'postgres',
-        'PASSWORD': 'Darcia27',
-        'HOST': 'localhost',  # O la dirección de tu servidor PostgreSQL
-        'PORT': '5432',  # Puerto por defecto de PostgreSQL
-    }
-}
-"""
+
 #conexion mysql
 
 DATABASES = {
@@ -115,7 +104,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'gestion_inventario',
         'USER': 'dairo',
-        'PASSWORD': 'D@rcia27',
+        'PASSWORD': 'Dairo@123',
         'HOST': 'localhost',
         'PORT': '3306'
     }

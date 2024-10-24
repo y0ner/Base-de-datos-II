@@ -6,7 +6,7 @@ from MisApps.productos.models import Producto
 from MisApps.categorias.serializers import CategoriaSerializer
 
 class ProductoSerializer(serializers.ModelSerializer):
-    categoria = CategoriaSerializer()  # Anidar el serializador de categoria
+    #categoria = CategoriaSerializer()  # Anidar el serializador de categoria
     class Meta:
         model = Producto
         fields = "__all__"  #incluir todos los campos

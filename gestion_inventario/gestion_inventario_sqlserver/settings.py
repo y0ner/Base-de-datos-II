@@ -96,8 +96,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'mssql',
         'NAME': 'gestion_inventario',
-        'USER': 'sa',
-        'PASSWORD': 'D@rcia27',
+        'USER': 'SA',
+        'PASSWORD': 'Darcia@123',
         'HOST': 'localhost',  # Dirección de tu servidor SQL Server
         'PORT': '1433',  # Puerto de SQL Server
         'OPTIONS': {

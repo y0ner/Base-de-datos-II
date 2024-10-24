@@ -16,6 +16,11 @@ import { CrearProductoComponent } from './components/producto/crear-producto/cre
 import { ActualizarProductoComponent } from './components/producto/actualizar-producto/actualizar-producto.component';
 import { EliminarProductoComponent } from './components/producto/eliminar-producto/eliminar-producto.component';
 
+import { MostrarFacturaComponent } from './components/factura/mostrar-factura/mostrar-factura.component';
+import { CrearFacturaComponent } from './components/factura/crear-factura/crear-factura.component';
+import { ActualizarFacturaComponent } from './components/factura/actualizar-factura/actualizar-factura.component';
+import { EliminarFacturaComponent } from './components/factura/eliminar-factura/eliminar-factura.component';
+
 export const routes: Routes = [
     { 
         path: '', 
@@ -66,5 +71,20 @@ export const routes: Routes = [
     {
         path: "productos/edit/:id",
         component: ActualizarProductoComponent
+    },
+
+    //CRUD Facturas
+    {
+        path: "facturas",
+        component: MostrarFacturaComponent
+    },
+    {
+        path: "facturas/nuevo",
+        component: CrearFacturaComponent
+    },
+
+    {
+        path: "facturas/edit/:id",
+        component: ActualizarFacturaComponent
     },
 ];
