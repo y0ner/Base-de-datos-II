@@ -14,19 +14,19 @@ main {
 
 header {
     grid-area: header;
-    border: 1px solid royalblue;
+
 }
 
 aside {
     grid-area: aside;
-    border: 1px solid royalblue;
+   
     padding: 1px;  /* Espacio interno más pequeño */
   margin: 1px;    /* Espacio externo más pequeño */
 }
 
 section {
     grid-area: section;
-    border: 1px solid royalblue;
+  
 }
 
 .recuadros {
@@ -42,5 +42,5 @@ section {
 
 footer {
     grid-area: footer;
-    border: 1px solid royalblue;
+  
 }
