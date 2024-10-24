@@ -11,6 +11,10 @@ sudo docker exec -it oracle-xe-container bash
 
 sqlplus sys/root@localhost:1521/XE as sysdba
 
+CREATE PLUGGABLE DATABASE gestion_inventario ADMIN USER vides IDENTIFIED BY root FILE_NAME_CONVERT = ('/opt/oracle/oradata/XE/pdbseed/', '/opt/oracle/oradata/XE/gestion_inventario/');
+
+ALTER PLUGGABLE DATABASE gestion_inventario OPEN;
+
 --------------------------------------------------------
 
 __ubicarse en la capeta usuario
@@ -47,6 +51,9 @@ wget http://deb.debian.org/debian/pool/main/liba/libaio/libaio1_0.3.112-3_amd64.
 sudo dpkg -i libaio1_0.3.112-3_amd64.deb
 
 Ingresar al contenedor con bash 
+
+--------------------------------------------------------------------------------------------------
+PRIVILEGIOS PARA HACER MIGRACION
 
 lsnrctl start
 
