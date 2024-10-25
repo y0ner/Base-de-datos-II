@@ -3,7 +3,7 @@ from MisApps.inventarios.views import home
 from MisApps.inventarios.views import InventarioList, InventarioDetail
 
 
-app_name = "clientes"
+app_name = "Inventarios"
 urlpatterns = [
     #path('inicio/', home, name= 'home'),
     path('', InventarioList.as_view()),
