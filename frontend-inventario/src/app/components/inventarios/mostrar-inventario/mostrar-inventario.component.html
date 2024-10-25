@@ -1,0 +1,66 @@
+<p-card class="w-20 h-full">
+    <ng-template pTemplate="header">
+        <div class="flex justify-content-between flex-wrap">
+            <h3 class="ml-4">Registro de Inventarios</h3>
+            <div class="mt-2">
+                <a 
+                    pButton 
+                    pRipple
+                    label="Crear Inventario" 
+                    icon="pi pi-plus"
+                    class="bg-cyan-500"
+                    [ngStyle]="{'text-decoration': 'none'}" 
+                    [routerLink]="['/inventarios/nuevo']">
+                </a>
+            </div>
+        </div>
+    </ng-template>
+    <p>
+        <p-table [value]="inventarios">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Producto</th>
+                    <th>Tipo de Movimiento</th>
+                    <th>Cantidad</th>
+                    <th>Fecha Movimiento</th>
+                    <th>Observaciones</th>
+                    <th class="flex justify-content-center flex-wrap">Acciones</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-inventario>
+                <tr>
+                    <td>{{ inventario.producto.nombre }}</td>
+                    <td>{{ inventario.tipo_movimiento }}</td>
+                    <td>{{ inventario.cantidad }}</td>
+                    <td>{{ inventario.fecha_movimiento | date }}</td>
+                    <td>{{ inventario.observaciones }}</td>
+                    <td class="flex justify-content-center flex-wrap">
+                        <!-- Botón de editar -->
+                        <a 
+                            pButton 
+                            pRipple
+                            icon="pi pi-sync"
+                            severity="warning"
+                            class="mr-1"
+                            [ngStyle]="{'text-decoration': 'none'}" 
+                            [routerLink]="['/inventarios/edit', inventario.id]">
+                            
+                        </a>
+
+                        <!-- Botón de eliminar -->
+                        <button 
+                            pButton 
+                            pRipple
+                            severity="danger"
+                            icon="pi pi-eraser"
+                            class="mr-1"
+                            (click)="confirmarEliminacion(inventario.id)">
+                        
+                        </button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </p>
+    <p-confirmDialog></p-confirmDialog>
+</p-card>

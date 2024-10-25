@@ -1,0 +1,39 @@
+<p-card class="w-20 h-full">
+    <ng-template pTemplate="header">
+      <h3 class="ml-4">Crear Nuevo Inventario</h3>
+    </ng-template>
+    <div>
+      <form [formGroup]="inventarioForm" (ngSubmit)="crearInventario()">
+        <div class="p-field">
+          <label for="producto">Producto</label>
+          <input pInputText id="producto" formControlName="producto" placeholder="Nombre del producto" />
+        </div>
+  
+        <div class="p-field">
+          <label for="tipo_movimiento">Tipo de Movimiento</label>
+          <input pInputText id="tipo_movimiento" formControlName="tipo_movimiento" placeholder="Entrada/Salida" />
+        </div>
+  
+        <div class="p-field">
+          <label for="cantidad">Cantidad</label>
+          <input pInputText id="cantidad" formControlName="cantidad" type="number" placeholder="Cantidad" />
+        </div>
+  
+        <div class="p-field">
+          <label for="fecha_movimiento">Fecha de Movimiento</label>
+          <input pInputText id="fecha_movimiento" formControlName="fecha_movimiento" type="date" />
+        </div>
+  
+        <div class="p-field">
+          <label for="observaciones">Observaciones</label>
+          <input pInputText id="observaciones" formControlName="observaciones" placeholder="Opcional" />
+        </div>
+  
+        <div class="flex justify-content-end mt-3">
+          <button pButton pRipple type="submit" label="Guardar" icon="pi pi-check" class="mr-2"></button>
+          <a pButton pRipple type="button" label="Cancelar" icon="pi pi-times" routerLink="/inventarios"></a>
+        </div>
+      </form>
+    </div>
+  </p-card>
+  
