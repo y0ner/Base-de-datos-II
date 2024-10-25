@@ -10,5 +10,7 @@ class DetalleFactura(models.Model):
     precio_unitario = models.DecimalField(max_digits=10, decimal_places=2)
     subtotal = models.DecimalField(max_digits=10, decimal_places=2)
 
+    
     def __str__(self):
-        return f"Detalle {self.factura.id} - {self.producto.nombre}"
+        return f"Factura {self.factura.id} - Cliente {self.factura.cliente.nombre} "
+        # return f"Detalle {self.factura.id} - {self.producto.nombre}"
