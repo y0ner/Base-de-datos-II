@@ -17,16 +17,17 @@ import { MostrarFacturaComponent } from './components/factura/mostrar-factura/mo
 import { CrearFacturaComponent } from './components/factura/crear-factura/crear-factura.component';
 import { ActualizarFacturaComponent } from './components/factura/actualizar-factura/actualizar-factura.component';
 
-// Importaciones para Inventario
 import { MostrarInventarioComponent } from '../app/components/inventarios/mostrar-inventario/mostrar-inventario.component'; // Asegúrate de que la ruta sea correcta
 import { CrearInventarioComponent } from '../app/components/inventarios/crear-inventario/crear-inventario.component'; // Asegúrate de que la ruta sea correcta
 import { ActualizarInventarioComponent } from '../app/components/inventarios/actualizar-inventario/actualizar-inventario.component'; // Asegúrate de que la ruta sea correcta
 
+
+
 export const routes: Routes = [
-    { 
-        path: '', 
-        redirectTo: '/', 
-        pathMatch: 'full' 
+    {
+        path: '',
+        redirectTo: '/',
+        pathMatch: 'full'
     },
 
     // CRUD CLIENTES
@@ -83,10 +84,7 @@ export const routes: Routes = [
     {
         path: "facturas/edit/:id",
         component: ActualizarFacturaComponent
-    },
-
-    // CRUD Inventarios
-    {
+    }, {
         path: "inventarios",
         component: MostrarInventarioComponent
     },
@@ -98,4 +96,4 @@ export const routes: Routes = [
         path: "inventarios/edit/:id",
         component: ActualizarInventarioComponent
     },
-];
+]
