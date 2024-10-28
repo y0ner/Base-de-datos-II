@@ -62,11 +62,12 @@ export class CrearDetalleFacturaComponent {
     this.facturaService.getAllFacturas() 
       .subscribe((data: any) => {
         this.facturas = data.map((factura: any) => ({
-          label: factura.cliente,
+          label: `${factura.cliente.nombre} - ${factura.fecha_factura}`, // Ajusta lo que quieres mostrar
           data: factura.id
         }));
       });
-  }
+}
+
 
   getProducto() {
     this.productoService.getAllProducto() 

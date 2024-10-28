@@ -1,8 +1,5 @@
 from dataclasses import field
 from statistics import mode
-from MisApps.categorias.models import Categoria
-from MisApps.categorias.serializers import CategoriaSerializer
-
 from rest_framework import serializers
 from MisApps.categorias.models import Categoria
 

@@ -5,3 +5,19 @@
 @import "primeicons/primeicons.css";
 @import "primeflex/primeflex.css";
 @import "styles.css";
+
+
+p,  h3, h4, h5, h6, input, textarea {
+    color: #5D6970; /* Color extraído del código anterior */
+    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px; /* O cualquier otra fuente que prefieras */
+}
+
+/* 
+p,  h3, h4, h5, h6, input, textarea, th:hover {
+    background-color: #f1f1f1; 
+    color: #333;
+    border-color: #ddd; 
+}
+   */

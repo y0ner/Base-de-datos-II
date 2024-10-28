@@ -5,23 +5,30 @@ import { MostrarClienteComponent } from './components/cliente/mostrar-cliente/mo
 import { CrearClienteComponent } from './components/cliente/crear-cliente/crear-cliente.component';
 import { ActualizarClienteComponent } from './components/cliente/actualizar-cliente/actualizar-cliente.component';
 
+// Importaciones de las rutas de categoría
 import { MostrarCategoriaComponent } from './components/categoria/mostrar-categoria/mostrar-categoria.component';
 import { CrearCategoriaComponent } from './components/categoria/crear-categoria/crear-categoria.component';
 import { ActualizarCategriaComponent } from './components/categoria/actualizar-categria/actualizar-categria.component';
 
+// Importaciones de las rutas de producto
 import { MostrarProductoComponent } from './components/producto/mostrar-producto/mostrar-producto.component';
 import { CrearProductoComponent } from './components/producto/crear-producto/crear-producto.component';
 import { ActualizarProductoComponent } from './components/producto/actualizar-producto/actualizar-producto.component';
 
+// Importaciones de las rutas de factura
 import { MostrarFacturaComponent } from './components/factura/mostrar-factura/mostrar-factura.component';
 import { CrearFacturaComponent } from './components/factura/crear-factura/crear-factura.component';
 import { ActualizarFacturaComponent } from './components/factura/actualizar-factura/actualizar-factura.component';
 
+// Importaciones de las rutas de detalles factura
+import { MostrarDetalleFacturaComponent } from './components/detalleFactura/mostrar-detalle-factura/mostrar-detalle-factura.component';
+import { CrearDetalleFacturaComponent } from './components/detalleFactura/crear-detalle-factura/crear-detalle-factura.component';
+import { ActualizarDetalleFacturaComponent } from './components/detalleFactura/actualizar-detalle-factura/actualizar-detalle-factura.component';
+
+// Importaciones de las rutas de inventarios
 import { MostrarInventarioComponent } from '../app/components/inventarios/mostrar-inventario/mostrar-inventario.component'; // Asegúrate de que la ruta sea correcta
 import { CrearInventarioComponent } from '../app/components/inventarios/crear-inventario/crear-inventario.component'; // Asegúrate de que la ruta sea correcta
 import { ActualizarInventarioComponent } from '../app/components/inventarios/actualizar-inventario/actualizar-inventario.component'; // Asegúrate de que la ruta sea correcta
-
-
 
 export const routes: Routes = [
     {
@@ -84,7 +91,24 @@ export const routes: Routes = [
     {
         path: "facturas/edit/:id",
         component: ActualizarFacturaComponent
-    }, {
+    },
+
+    // CRUD Detalles Factura
+    {
+        path: "detalles_facturas",
+        component: MostrarDetalleFacturaComponent
+    },
+    {
+        path: "detalles_facturas/nuevo",
+        component: CrearDetalleFacturaComponent
+    },
+    {
+        path: "detalles_facturas/edit/:id",
+        component: ActualizarDetalleFacturaComponent
+    },
+
+    // CRUD Inventarios
+    {
         path: "inventarios",
         component: MostrarInventarioComponent
     },
@@ -96,4 +120,4 @@ export const routes: Routes = [
         path: "inventarios/edit/:id",
         component: ActualizarInventarioComponent
     },
-]
+];

@@ -1,39 +1,70 @@
-<p-card class="w-20 h-full">
-    <ng-template pTemplate="header">
-      <h3 class="ml-4">Crear Nuevo Inventario</h3>
-    </ng-template>
-    <div>
-      <form [formGroup]="inventarioForm" (ngSubmit)="crearInventario()">
-        <div class="p-field">
-          <label for="producto">Producto</label>
-          <input pInputText id="producto" formControlName="producto" placeholder="Nombre del producto" />
+<p-card header="Crear inventarios" [style]="{ width: '100%' }">
+  <ng-template pTemplate="header"></ng-template>
+  <div>
+    <form [formGroup]="inventarioForm" novalidate (ngSubmit)="crearInventario()" class="p-3 bg-faded">
+      <div class="grid">
+        <!-- Campo Producto -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon"><i class="pi pi-box"></i></span>
+            <p-treeSelect
+              class="md:w-10rem w-12"
+              containerStyleClass="w-12"
+              [options]="Product"
+              formControlName="producto"
+              placeholder="Seleccione un producto"
+              [showClear]="true"
+              selectionMode="single">
+            </p-treeSelect>
+          </div>
         </div>
-  
-        <div class="p-field">
-          <label for="tipo_movimiento">Tipo de Movimiento</label>
-          <input pInputText id="tipo_movimiento" formControlName="tipo_movimiento" placeholder="Entrada/Salida" />
+
+        <!-- Campo Entrada/Salida -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input pInputText id="tipo_movimiento" formControlName="tipo_movimiento" placeholder="Entrada/Salida" />
+          </div>
         </div>
-  
-        <div class="p-field">
-          <label for="cantidad">Cantidad</label>
-          <input pInputText id="cantidad" formControlName="cantidad" type="number" placeholder="Cantidad" />
+
+        <!-- Campo Cantidad -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input pInputText id="cantidad" formControlName="cantidad" type="number" placeholder="Cantidad" />
+          </div>
         </div>
-  
-        <div class="p-field">
-          <label for="fecha_movimiento">Fecha de Movimiento</label>
-          <input pInputText id="fecha_movimiento" formControlName="fecha_movimiento" type="date" />
+
+        <!-- Campo Fecha de Movimiento -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon"><i class="pi pi-fw pi-calendar"></i></span>
+            <input pInputText id="fecha_movimiento" formControlName="fecha_movimiento" type="date" />
+          </div>
         </div>
-  
-        <div class="p-field">
-          <label for="observaciones">Observaciones</label>
-          <input pInputText id="observaciones" formControlName="observaciones" placeholder="Opcional" />
+
+        <!-- Campo Observaciones -->
+        <div class="col-12 sm:col-12">
+          <div class="p-inputgroup mb-3">
+            <span class="p-inputgroup-addon"><i class="pi pi-book"></i></span>
+            <textarea
+              pInputTextarea
+              id="observaciones"
+              formControlName="observaciones"
+              placeholder="Escribe aquí tus observaciones"
+              rows="5"
+              class="observaciones-textarea p-inputtext w-full"
+            ></textarea>
+          </div>
         </div>
-  
-        <div class="flex justify-content-end mt-3">
-          <button pButton pRipple type="submit" label="Guardar" icon="pi pi-check" class="mr-2"></button>
-          <a pButton pRipple type="button" label="Cancelar" icon="pi pi-times" routerLink="/inventarios"></a>
-        </div>
-      </form>
-    </div>
-  </p-card>
-  
+      </div>
+
+      <!-- Botones Guardar y Cancelar -->
+      <div class="flex justify-content-center flex-wrap">
+        <button pButton pRipple label="Guardar" icon="pi pi-save" severity="info" class="mr-4" type="submit"></button>
+        <button pButton pRipple label="Cancelar" icon="pi pi-times-circle" severity="warning" class="mr-4" type="button" routerLink="/inventarios"></button>
+      </div>
+    </form>
+  </div>
+  <ng-template pTemplate="footer"></ng-template>
+</p-card>

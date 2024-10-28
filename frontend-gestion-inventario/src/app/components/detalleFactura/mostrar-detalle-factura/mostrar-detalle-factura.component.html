@@ -6,7 +6,7 @@
                 <a 
                     pButton 
                     pRipple
-                    label="Crear Factura" 
+                    label="Crear Detalles Factura" 
                     icon="pi pi-user-plus"
                     class="bg-cyan-600"
                     [ngStyle]="{'text-decoration': 'none'}" 
@@ -36,13 +36,6 @@
                     <td>{{ detallesfacturas.descripcion }}</td>
                     <td>{{ detallesfacturas.producto.nombre }}</td>
                     <td class="flex justify-content-center flex-wrap">
-                        <button 
-                            pButton 
-                            pRipple
-                            icon="pi pi-print"
-                            class="bg-cyan-600 mr-1">
-                        
-                        </button>
                         <a 
                             pButton 
                             pRipple

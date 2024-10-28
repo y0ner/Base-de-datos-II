@@ -11,25 +11,34 @@ import { MessageService } from 'primeng/api';
 import { DropdownModule } from 'primeng/dropdown';
 import { InventarioI } from '../../../models/inventario';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TreeSelectModule } from 'primeng/treeselect';
+import { ProductoService } from '../../../services/producto.service';
+import { TreeNode } from 'primeng/api';
 
 @Component({
   selector: 'app-actualizar-inventario',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule, InputTextModule, ButtonModule, CardModule, RouterModule, DropdownModule],
+  imports: [ReactiveFormsModule, CommonModule, InputTextModule, ButtonModule, CardModule, RouterModule, DropdownModule, TreeSelectModule],
   templateUrl: './actualizar-inventario.component.html',
   styleUrls: ['./actualizar-inventario.component.css'],
   providers: [MessageService]
 })
 export class ActualizarInventarioComponent implements OnInit {
-  inventarioForm: FormGroup; // Formulario para actualizar inventario
-  private inventarioService = inject(InventarioService); // Inyección de InventarioService
-  private messageService = inject(MessageService); // Inyección de MessageService
-  private router = inject(Router); // Inyección de Router
-  private route = inject(ActivatedRoute); // Inyección de ActivatedRoute
-  inventarioId: number | undefined;
+  public inventarioId: number = 0;
+  public Product: TreeNode[] = [];
+  public selectedProduct: TreeNode | undefined;
+  public inventarioForm: FormGroup;
+  
+  private inventarioService = inject(InventarioService);
+  private messageService = inject(MessageService);
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+  private productoService = inject(ProductoService);
+  private formBuilder = inject(FormBuilder);
 
-  constructor(private fb: FormBuilder) {
-    this.inventarioForm = this.fb.group({
+  constructor() {
+    this.inventarioForm = this.formBuilder.group({
+      id: [''],
       producto: ['', Validators.required],
       tipo_movimiento: ['', Validators.required],
       cantidad: ['', [Validators.required, Validators.min(1)]],
@@ -39,25 +48,57 @@ export class ActualizarInventarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.inventarioId = Number(this.route.snapshot.paramMap.get('id'));
+    this.inventarioId = Number(this.route.snapshot.params['id']);
     if (this.inventarioId) {
-      this.inventarioService.getInventarioById(this.inventarioId).subscribe((data: InventarioI) => {
-        this.inventarioForm.patchValue(data);
-      });
+      this.getInventario(this.inventarioId);
     }
+    this.getProducto();
   }
-  
-  actualizarInventario(): void {
-    if (this.inventarioId !== undefined) {
-      console.log(this.inventarioForm.value);
-      this.inventarioService.updateInventario(this.inventarioId, this.inventarioForm.value).subscribe({
-        next: () => {
-          this.messageService.add({ severity: 'success', summary: 'Actualizado', detail: 'Inventario actualizado con éxito' });
-        },
-        error: () => {
-          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error al actualizar el inventario' });
-        }
+
+  getProducto() {
+    this.productoService.getAllProducto().subscribe((data: any) => {
+      this.Product = data.map((producto: any) => ({
+        label: producto.nombre,
+        data: producto.id
+      }));
+    });
+  }
+
+  getInventario(id: number) {
+    this.inventarioService.getInventarioById(id).subscribe((data: InventarioI) => {
+      this.inventarioForm.patchValue({
+        id: data.id,
+        producto: { data: data.producto },  // Ajustar para TreeSelect
+        tipo_movimiento: data.tipo_movimiento,
+        cantidad: data.cantidad,
+        fecha_movimiento: data.fecha_movimiento,
+        observaciones: data.observaciones
       });
-    }
-  }    
+    });
+  }
+
+  actualizarInventario(): void {
+    const formValue = { ...this.inventarioForm.value };
+    formValue.producto = this.inventarioForm.value.producto.data; // Obtener ID del producto seleccionado
+
+    this.inventarioService.updateInventario(this.inventarioId, formValue).subscribe({
+      next: () => {
+        this.messageService.add({ severity: 'success', summary: 'Actualizado', detail: 'Inventario actualizado con éxito' });
+        this.router.navigate(['/inventarios']);
+      },
+      error: () => {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error al actualizar el inventario' });
+      }
+    });
+  }
+
+  cancel(): void {
+    this.router.navigate(['/inventarios']);
+  }
+
+  get producto() { return this.inventarioForm.get('producto'); }
+  get tipo_movimiento() { return this.inventarioForm.get('tipo_movimiento'); }
+  get cantidad() { return this.inventarioForm.get('cantidad'); }
+  get fecha_movimiento() { return this.inventarioForm.get('fecha_movimiento'); }
+  get observaciones() { return this.inventarioForm.get('observaciones'); }
 }

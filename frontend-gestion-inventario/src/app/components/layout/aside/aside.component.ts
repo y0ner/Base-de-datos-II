@@ -45,7 +45,8 @@ export class AsideComponent {
         label: 'Inventarios',
         icon: 'pi pi-fw pi-chart-scatter',
         routerLink: '/inventarios'
-      }
+      },
+      
 
     ];
   }

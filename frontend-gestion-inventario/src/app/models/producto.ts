@@ -1,23 +1,10 @@
+import { CategoriaI } from './categoria'; // Ajusta la ruta si es necesario
 export interface ProductoI {
-
-    
-    nombre: "",
-    descripcion: "",
-    precio: null,
-    stock_actual: null,
-    stock_minimo: null
-    categoria: null
-
-    
-        // "categoria": {
-        //     "nombre": "",
-        //     "descripcion": ""
-        // },
-        // "nombre": "",
-        // "descripcion": "",
-        // "precio": null,
-        // "stock_actual": null,
-        // "stock_minimo": null
-    
-
+  id: number;
+  nombre: string;
+  descripcion: string;
+  precio: number;
+  stock_actual: number;
+  stock_minimo: number;
+  categoria: CategoriaI | null;  // Cambia de `null` a `CategoriaI | null`
 }

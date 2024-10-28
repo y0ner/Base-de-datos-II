@@ -53,7 +53,7 @@ export class ActualizarProductoComponent implements OnInit{
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     // let idCliente = this.route.snapshot.paramMap.get("id");
-    this.getCliente(this.id);
+    this.getDatos(this.id);
     this.getCategorias();
 
   }
@@ -68,32 +68,52 @@ export class ActualizarProductoComponent implements OnInit{
       });
   }
 
-  getCliente(id: number){
+  getDatos(id: number){
     this.productoService.getOneProducto(id)
     .subscribe({
       next: (data) => {
         this.form.patchValue(data)
-        
       }
     })
   }
 
   onSubmit(): void {
+    if (this.form.invalid) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Formulario inválido',
+        life: 5000
+      });
+      return;
+    }
+  
     const formValue: ProductoI = this.form.value;
-    const id: number =  this.form.value.id
+    formValue.categoria = this.form.value.categoria.data; // Añade esta línea
+    const id: number = this.form.value.id;
+  
     this.productoService.updateProducto(id, formValue).subscribe(
       () => {
-  
-        this.router.navigateByUrl('productos');
-
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Notificación',
+          detail: 'Producto actualizado',
+          life: 5000
+        });
+        this.router.navigateByUrl('/productos');
       },
       err => {
-
-        console.log(err);
-        console.log('No se ha creado correctamente');
+        console.error('Error al actualizar producto:', err);
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'No se ha actualizado correctamente',
+          life: 5000
+        });
       }
     );
   }
+  
 
   cancel() {
     this.router.navigateByUrl('/productos');
