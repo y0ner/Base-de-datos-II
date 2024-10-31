@@ -32,3 +32,14 @@ Para conectar el proyecto a tu base de datos preferida, sigue estos pasos:
 Dirígete al archivo settings.py, ubicado en gestion_inventario/gestion_inventario/settings.py.
 En este archivo, encontrarás la configuración DATABASES = {}. Para establecer la conexión, comenta o desactiva la configuración actual y añade los detalles específicos de tu base de datos.
 Repite el proceso para cada base de datos que desees utilizar, ajustando la configuración en settings.py según los requisitos de cada motor de base de datos.
+
+## Vista previa del software 
+![vista previa 1](assets/9.png)
+![vista previa 2](assets/10.png)
+
+### Integrantes
+
+Yoner De Jesus Isaza Vides 
+Dairo Alfonso Arcia Macea
+
+UNIVERSIDAD DE LA GUAJIRA
