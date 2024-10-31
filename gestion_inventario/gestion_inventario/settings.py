@@ -107,18 +107,18 @@ WSGI_APPLICATION = 'gestion_inventario.wsgi.application'
 #     }
 # }
 
-#mysql
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'gestion_inventario',
-        'USER': 'isaza',
-        'PASSWORD': 'Root@24!',
-        'HOST': 'localhost',
-        'PORT': '3306'
+# #mysql
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'gestion_inventario',
+#         'USER': 'isaza',
+#         'PASSWORD': 'Root@24!',
+#         'HOST': 'localhost',
+#         'PORT': '3306'
 
-    }
-}
+#     }
+# }
 
 # # #Conexion sql server
 # DATABASES = {
@@ -137,15 +137,15 @@ DATABASES = {
 #     }
 # }
 
-# # #Conexion Oracle
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.oracle',
-#         'NAME': '//127.0.0.1:1521/almacen2022_oracle',  # SID
-#         'USER': 'isaza',
-#         'PASSWORD': 'root',
-#     }
-# }
+# #Conexion Oracle
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': '//127.0.0.1:1521/gestion_inventario',  # SID
+        'USER': 'vides',
+        'PASSWORD': 'root',
+    }
+}
 
 
 
