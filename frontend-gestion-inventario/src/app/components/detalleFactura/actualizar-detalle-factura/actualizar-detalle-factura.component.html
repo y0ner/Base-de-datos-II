@@ -1,75 +1,74 @@
 <p-card header="Editar Detalles de Facturas" [style]="{ width: '100%' }">
-    <ng-template pTemplate="header">
-
-    </ng-template>
+    <ng-template pTemplate="header"></ng-template>
     <div>
-        <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
-
-
-            <div class="grid">
-                <div class="col-12 sm:col-6">
-                    <div class="p-inputgroup mb-1">
-                        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                        <input class="w-12" type="text" pInputText formControlName="cantidad" placeholder="cantidad"
-                            title="Cantidad">
-                    </div>
-                </div>
-
-
-                <div class="col-12 sm:col-6">
-                    <div class="p-inputgroup mb-1">
-                        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                        <input class="w-12" type="text" pInputText formControlName="precio_unitario"
-                            placeholder="Precio Unitario" title="Precio Unitario">
-                    </div>
-                </div>
-
-
-                <div class="col-12 sm:col-6">
-                    <div class="p-inputgroup mb-1">
-                        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                        <input class="w-12" type="text" pInputText formControlName="subtotal" placeholder="subtotal"
-                            title="subtotal">
-                    </div>
-                </div>
-
-                <div class="col-12 sm:col-6">
-                    <div class="p-inputgroup mb-1">
-                        <span class="p-inputgroup-addon"><i class="pi pi-fw pi-qrcode"></i></span>
-                        <p-treeSelect class="md:w-10rem w-12" containerStyleClass="w-12" [options]="facturas"
-                            formControlName="factura" placeholder="Seleccione una factura" [showClear]="true"
-                            selectionMode="single">
-                        </p-treeSelect>
-
-                    </div>
-                </div>
-
-                <div class="col-12 sm:col-6">
-                    <div class="p-inputgroup mb-1">
-                        <span class="p-inputgroup-addon"><i class="pi pi-fw pi-qrcode"></i></span>
-                        <p-treeSelect class="md:w-10rem w-12" containerStyleClass="w-12" [options]=" Product"
-                            formControlName="producto" placeholder="Seleccione un producto" [showClear]="true"
-                            selectionMode="single">
-                        </p-treeSelect>
-                    </div>
-                </div>
-
-
+      <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+        <div class="grid">
+  
+          <!-- Campo Cantidad -->
+          <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+              <span class="p-inputgroup-addon"><i class="pi pi-sort-numeric-up"></i></span>
+              <input class="w-12" type="number" pInputText formControlName="cantidad" placeholder="Cantidad" title="Cantidad">
             </div>
-
-            <div class="flex justify-content-center flex-wrap">
-                <button pButton pRipple label="Aceptar" icon="pi pi-save" severity="info" class="mr-4"
-                    type="submit"></button>
-
-                <button pButton pRipple label="Cancelar" icon="pi pi-times-circle" severity="warning" class="mr-4"
-                    type="button" (click)="cancel()"></button>
+          </div>
+  
+          <!-- Campo Precio Unitario -->
+          <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+              <span class="p-inputgroup-addon"><i class="pi pi-dollar"></i></span>
+              <input class="w-12" type="text" pInputText formControlName="precio_unitario" placeholder="Precio Unitario" title="Precio Unitario">
             </div>
-
-
-        </form>
-
+          </div>
+  
+          <!-- Campo Subtotal -->
+          <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+              <span class="p-inputgroup-addon"><i class="pi pi-calculator"></i></span>
+              <input class="w-12" type="text" pInputText formControlName="subtotal" placeholder="Subtotal" title="Subtotal">
+            </div>
+          </div>
+  
+          <!-- Campo Selección de Factura -->
+          <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+              <span class="p-inputgroup-addon"><i class="pi pi-file-o"></i></span>
+              <p-treeSelect
+                class="md:w-10rem w-12"
+                containerStyleClass="w-12"
+                [options]="facturas"
+                formControlName="factura"
+                placeholder="Seleccione una factura"
+                [showClear]="true"
+                selectionMode="single">
+              </p-treeSelect>
+            </div>
+          </div>
+  
+          <!-- Campo Selección de Producto -->
+          <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+              <span class="p-inputgroup-addon"><i class="pi pi-box"></i></span>
+              <p-treeSelect
+                class="md:w-10rem w-12"
+                containerStyleClass="w-12"
+                [options]="Product"
+                formControlName="producto"
+                placeholder="Seleccione un producto"
+                [showClear]="true"
+                selectionMode="single">
+              </p-treeSelect>
+            </div>
+          </div>
+  
+        </div>
+  
+        <!-- Botones Guardar y Cancelar -->
+        <div class="flex justify-content-center flex-wrap">
+          <button pButton pRipple label="Guardar" icon="pi pi-save" severity="info" class="mr-4" type="submit"></button>
+          <button pButton pRipple label="Cancelar" icon="pi pi-times-circle" severity="warning" class="mr-4" type="button" (click)="cancel()"></button>
+        </div>
+      </form>
     </div>
-    <ng-template pTemplate="footer">
-
-    </ng-template>
-</p-card>
+    <ng-template pTemplate="footer"></ng-template>
+  </p-card>
+  
