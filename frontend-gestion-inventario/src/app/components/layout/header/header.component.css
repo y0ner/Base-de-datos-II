@@ -3,7 +3,7 @@
     align-items: center;
     background-color: #ffffff; /* Fondo blanco */
     padding: .5rem;
-    border-bottom: 2px solid #1abc9c;
+    border-bottom: 2px solid #9bd2ff;
     
 }
 
@@ -65,4 +65,10 @@
     color: #34495e; /* Color de texto invertido */
     font-size: 1rem;
     font-weight: 600;
+}
+
+.icon-img {
+    height: 70px;  /* Tamaño consistente para ambos iconos */
+    width: auto;
+    padding: 0.5rem;
 }
