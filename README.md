@@ -39,7 +39,8 @@ Repite el proceso para cada base de datos que desees utilizar, ajustando la conf
 
 ### Integrantes
 
-Yoner De Jesus Isaza Vides 
+Yoner De Jesus Isaza Vides.
+ 
 Dairo Alfonso Arcia Macea
 
 UNIVERSIDAD DE LA GUAJIRA
