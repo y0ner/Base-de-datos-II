@@ -34,13 +34,15 @@ En este archivo, encontrarás la configuración DATABASES = {}. Para establecer 
 Repite el proceso para cada base de datos que desees utilizar, ajustando la configuración en settings.py según los requisitos de cada motor de base de datos.
 
 ## Vista previa del software 
+Visualizaciones de clientes
 ![vista previa 1](assets/9.png)
+Creaciones de inventarios y mucho mas.
 ![vista previa 2](assets/10.png)
 
 ### Integrantes
 
 Yoner De Jesus Isaza Vides.
- 
+
 Dairo Alfonso Arcia Macea
 
 UNIVERSIDAD DE LA GUAJIRA
