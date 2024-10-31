@@ -14,10 +14,3 @@ p,  h3, h4, h5, h6, input, textarea {
     font-size: 16px; /* O cualquier otra fuente que prefieras */
 }
 
-/* 
-p,  h3, h4, h5, h6, input, textarea, th:hover {
-    background-color: #f1f1f1; 
-    color: #333;
-    border-color: #ddd; 
-}
-   */

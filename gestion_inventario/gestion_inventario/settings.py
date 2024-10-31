@@ -94,31 +94,31 @@ WSGI_APPLICATION = 'gestion_inventario.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 
-# #conexion postgres
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gestion_inventario',
-        'USER': 'postgres',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': '5432'
-
-    }
-}
-
-# #mysql
+# # #conexion postgres
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
+#         'ENGINE': 'django.db.backends.postgresql',
 #         'NAME': 'gestion_inventario',
-#         'USER': 'isaza',
-#         'PASSWORD': 'Root@24!',
+#         'USER': 'postgres',
+#         'PASSWORD': 'root',
 #         'HOST': 'localhost',
-#         'PORT': '3306'
+#         'PORT': '5432'
 
 #     }
 # }
+
+#mysql
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'gestion_inventario',
+        'USER': 'isaza',
+        'PASSWORD': 'Root@24!',
+        'HOST': 'localhost',
+        'PORT': '3306'
+
+    }
+}
 
 # # #Conexion sql server
 # DATABASES = {
