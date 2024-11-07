@@ -1,0 +1,13 @@
+1. Los entornos virtuales son muy importantes a la hora de utilizar el proyecto,
+    - Cada carpeta contiene el mismo proyecto sitealmacen pero con una db diferente
+    - Esto es neceseario ya que cada db tiene una configuracion exaustiva para poder ser
+      implementada en el wsl
+    - cada db tiene una configuracion para ser conectada con django 
+    - Por lo tanto en cada mini proyecto esta un "Requeriments.txt", el cual contiene las dependencias 
+    necesarias tanto para conexio de db con django.
+
+2. Cada vez que se inicia un proyecto con Angular este crea automaticamente un ".git"
+
+    -Borrarlo en caso de conflictos
+
+3. 
