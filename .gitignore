@@ -1,7 +1,6 @@
-/clase/virtual_main/
-/clase/sitealmacen_oracle/virtual3/
-/clase/sitealmacen_sqlServer/virtual4/
 # /gestion_inventario/gestion_inventario/settings.py
-/virtual_mysql
-/clase/
-.venv
+clase/
+.venv/
+Virtual_Oracle/
+Virtual_Mysql-Postgres/
+Virtual_SqlServer/
