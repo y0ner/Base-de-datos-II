@@ -9,11 +9,12 @@ import { ButtonModule } from 'primeng/button';
 import { ReactiveFormsModule, FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
 import { MessageModule } from 'primeng/message'; // Importa MessageModule
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
   selector: 'app-actualizar-cliente',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ToastModule, CardModule, ButtonModule, MessageModule],
+  imports: [InputTextModule,CommonModule, ReactiveFormsModule, ToastModule, CardModule, ButtonModule, MessageModule],
   templateUrl: './actualizar-cliente.component.html',
   styleUrl: './actualizar-cliente.component.css',
   providers: [MessageService]

@@ -12,12 +12,12 @@ import { ProductoI } from '../../../models/producto';
 import { CategoriaService } from '../../../services/categoria.service';
 import { TreeSelectModule } from 'primeng/treeselect';
 import { TreeNode } from 'primeng/api';
-
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
   selector: 'app-actualizar-producto',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ToastModule, CardModule, ButtonModule, MessageModule, TreeSelectModule ],
+  imports: [InputTextModule,CommonModule, ReactiveFormsModule, ToastModule, CardModule, ButtonModule, MessageModule, TreeSelectModule ],
   templateUrl: './actualizar-producto.component.html',
   styleUrl: './actualizar-producto.component.css',
   providers: [MessageService]

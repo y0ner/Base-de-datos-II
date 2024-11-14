@@ -9,11 +9,12 @@ import { ButtonModule } from 'primeng/button';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
 import { MessageModule } from 'primeng/message'; 
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
   selector: 'app-crear-categoria',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ToastModule, CardModule, ButtonModule, MessageModule],
+  imports: [InputTextModule,CommonModule, ReactiveFormsModule, ToastModule, CardModule, ButtonModule, MessageModule],
   templateUrl: './crear-categoria.component.html',
   styleUrl: './crear-categoria.component.css',
   providers: [MessageService]

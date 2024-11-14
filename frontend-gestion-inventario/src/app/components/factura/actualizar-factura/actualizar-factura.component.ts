@@ -12,11 +12,11 @@ import { FacturaI } from '../../../models/factura';
 import { ClienteService } from '../../../services/cliente.service';
 import { TreeSelectModule } from 'primeng/treeselect';
 import { TreeNode } from 'primeng/api';
-
+import { InputTextModule } from 'primeng/inputtext';
 @Component({
   selector: 'app-actualizar-factura',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ToastModule, CardModule, ButtonModule, MessageModule, TreeSelectModule],
+  imports: [InputTextModule, CommonModule, ReactiveFormsModule, ToastModule, CardModule, ButtonModule, MessageModule, TreeSelectModule],
   templateUrl: './actualizar-factura.component.html',
   styleUrl: './actualizar-factura.component.css',
   providers: [MessageService]

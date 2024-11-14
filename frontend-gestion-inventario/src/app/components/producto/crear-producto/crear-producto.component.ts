@@ -13,13 +13,11 @@ import { ProductoI } from '../../../models/producto';
 import { FormsModule } from '@angular/forms'; // Importa FormsModule
 import { TreeSelectModule } from 'primeng/treeselect';
 import { TreeNode } from 'primeng/api';
-// import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
-
+import { InputTextModule } from 'primeng/inputtext';
 @Component({
   selector: 'app-crear-producto',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ToastModule, CardModule, ButtonModule, MessageModule, FormsModule, TreeSelectModule ],
+  imports: [InputTextModule,CommonModule, ReactiveFormsModule, ToastModule, CardModule, ButtonModule, MessageModule, FormsModule, TreeSelectModule ],
   templateUrl: './crear-producto.component.html',
   styleUrls: ['./crear-producto.component.css'],
   providers: [MessageService]

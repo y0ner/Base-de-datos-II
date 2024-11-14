@@ -10,12 +10,13 @@ import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angula
 import { ToastModule } from 'primeng/toast';
 import { MessageModule } from 'primeng/message'; // Importa MessageModule
 // import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { InputTextModule } from 'primeng/inputtext';
 
 
 @Component({
   selector: 'app-crear-cliente',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ToastModule, CardModule, ButtonModule, MessageModule],
+  imports: [InputTextModule,CommonModule, ReactiveFormsModule, ToastModule, CardModule, ButtonModule, MessageModule],
   templateUrl: './crear-cliente.component.html',
   styleUrls: ['./crear-cliente.component.css'],
   providers: [MessageService]

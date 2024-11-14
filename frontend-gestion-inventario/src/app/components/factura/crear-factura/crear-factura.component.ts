@@ -12,12 +12,12 @@ import { FacturaService } from '../../../services/factura.service';
 import { TreeSelectModule } from 'primeng/treeselect';
 import { TreeNode } from 'primeng/api';
 import { ClienteService } from '../../../services/cliente.service';
-// import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
   selector: 'app-crear-factura',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ToastModule, CardModule, ButtonModule, MessageModule, TreeSelectModule],
+  imports: [InputTextModule,CommonModule, ReactiveFormsModule, ToastModule, CardModule, ButtonModule, MessageModule, TreeSelectModule],
   templateUrl: './crear-factura.component.html',
   styleUrl: './crear-factura.component.css',
   providers: [MessageService]

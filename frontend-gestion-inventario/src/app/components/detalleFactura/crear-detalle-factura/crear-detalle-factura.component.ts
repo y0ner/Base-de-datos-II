@@ -14,11 +14,12 @@ import { TreeNode } from 'primeng/api';
 import { ProductoService } from '../../../services/producto.service';
 import { DetallefacturaService } from '../../../services/detallefactura.service';
 import { DetalleFacturaI } from '../../../models/detalle_factura';
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
   selector: 'app-crear-detalle-factura',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ToastModule, CardModule, ButtonModule, MessageModule, TreeSelectModule],
+  imports: [InputTextModule,CommonModule, ReactiveFormsModule, ToastModule, CardModule, ButtonModule, MessageModule, TreeSelectModule],
   templateUrl: './crear-detalle-factura.component.html',
   styleUrl: './crear-detalle-factura.component.css',
   providers: [MessageService]
