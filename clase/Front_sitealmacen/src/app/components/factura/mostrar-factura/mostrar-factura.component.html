@@ -1,0 +1,59 @@
+<p-card class="w-12 h-full">
+    <ng-template pTemplate="header">
+        <div class="flex justify-content-between flex-wrap">
+            <h3 class="ml-4">Registro de Facturas</h3>
+            <div class="mt-2 mr-2">
+                <a 
+                    pButton 
+                    pRipple
+                    label="Crear Factura" 
+                    icon="pi pi-user-plus"
+                    class="bg-cyan-600"
+                    [ngStyle]="{'text-decoration': 'none'}" 
+                    [routerLink]="['/facturas/nuevo']">
+                </a>
+            </div>
+        </div>
+    </ng-template>
+    <p>
+        <p-table [value]="facturas">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Total</th>
+                    <th>Cliente</th>
+                    <th class="flex justify-content-center flex-wrap">Acciones</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-facturas>
+                <tr>
+                    <td>{{ facturas.total }}</td>
+                    <td>{{ facturas.cliente.nombre }}</td>
+                    <td class="flex justify-content-center flex-wrap">
+                        <a 
+                            pButton 
+                            pRipple
+                            icon="pi pi-sync"
+                            severity="warning"
+                            class="mr-1"
+                            [ngStyle]="{'text-decoration': 'none'}" 
+                            [routerLink]="['/facturas/edit', facturas.id]">
+                            Editar
+                        </a>
+                        <button 
+                            pButton 
+                            pRipple
+                            severity="danger"
+                            icon="pi pi-eraser"
+                            class="mr-1"
+                            (click)="eliminar(facturas.id)">
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </p>
+    <p-confirmDialog></p-confirmDialog>
+</p-card>
+
+

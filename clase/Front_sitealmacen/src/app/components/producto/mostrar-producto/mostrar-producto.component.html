@@ -1,0 +1,65 @@
+<p-card class="w-12 h-full">
+    <ng-template pTemplate="header">
+        <div class="flex justify-content-between flex-wrap">
+            <h3 class="ml-4">Registro de Producto</h3>
+            <div class="mt-2 mr-2">
+                <a 
+                    pButton 
+                    pRipple
+                    label="Crear Producto" 
+                    icon="pi pi-user-plus"
+                    class="bg-cyan-600"
+                    [ngStyle]="{'text-decoration': 'none'}" 
+                    [routerLink]="['/productos/nuevo']">
+                </a>
+            </div>
+        </div>
+    </ng-template>
+    <p>
+        <p-table [value]="productos">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th >Nombre</th>
+                    <th >marca</th>
+                    <th >Precio</th>
+                    <th >Stock Minimo</th>
+                    <th >Cantidad</th>
+                    <th >Acciones</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-productos>
+                <tr>
+                    <td >{{ productos.nombre }}</td>
+                    <td >{{ productos.marca }}</td>
+                    <td >{{ productos.precio }}</td>
+                    <td >{{ productos.stockmin }}</td>
+                    <td >{{ productos.cantidad }}</td>
+                    <td class="flex justify-content-center flex-row">
+                        <a 
+                            pButton 
+                            pRipple
+                            icon="pi pi-sync"
+                            severity="warning"
+                            class="mr-1 small-button"
+                            [ngStyle]="{'text-decoration': 'none'}" 
+                            [routerLink]="['/productos/edit', productos.id]">
+                        </a>
+                        <button 
+                            pButton 
+                            pRipple
+                            severity="danger"
+                            icon="pi pi-eraser"
+                            class="mr-1 small-button"
+                            (click)="eliminar(productos.id)">
+                        </button>
+                    </td>
+                    
+                </tr>
+            </ng-template>
+        </p-table>
+    </p>
+    <p-confirmDialog></p-confirmDialog>
+</p-card>
+
+
+
