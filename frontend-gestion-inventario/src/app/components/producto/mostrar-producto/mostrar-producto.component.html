@@ -3,14 +3,9 @@
         <div class="flex justify-content-between items-center">
             <h3 class="ml-4 text-xl font-semibold text-gray-800">Registro de Producto</h3>
             <div class="mt-2 mr-2">
-                <a 
-                    pButton 
-                    pRipple
-                    label="Crear Producto" 
-                    icon="pi pi-user-plus"
+                <a pButton pRipple label="Crear Producto" icon="pi pi-user-plus"
                     class="bg-cyan-600 text-white hover:bg-cyan-700 px-4 py-2 rounded-md"
-                    [ngStyle]="{'text-decoration': 'none'}" 
-                    [routerLink]="['/productos/nuevo']">
+                    [ngStyle]="{'text-decoration': 'none'}" [routerLink]="['/productos/nuevo']">
                 </a>
             </div>
         </div>
@@ -25,7 +20,7 @@
                     <th>Stock Actual</th>
                     <th>Stock Mínimo</th>
                     <th>Categoría</th>
-                    <th class="flex justify-content-center flex-wrap">Acciones</th>
+                    <th class="acciones-col">Acciones</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-productos>
@@ -36,27 +31,16 @@
                     <td>{{ productos.stock_actual }}</td>
                     <td>{{ productos.stock_minimo }}</td>
                     <td>{{ productos.categoria.nombre }}</td>
-                    <td class="flex justify-content-center space-x-2">
+                    <td class="flex justify-content-center acciones-col">
                         <!-- Botón de editar -->
-                        <a 
-                            pButton 
-                            pRipple
-                            icon="pi pi-sync"
-                            severity="warning"
+                        <a pButton pRipple icon="pi pi-sync" severity="warning"
                             class="small-button p-button-rounded p-button-text"
-                            [ngStyle]="{'text-decoration': 'none'}" 
                             [routerLink]="['/productos/edit', productos.id]">
                             Editar
                         </a>
-                        
-                        <!-- Botón de eliminar -->
-                        <button 
-                            pButton 
-                            pRipple
-                            severity="danger"
-                            icon="pi pi-trash"
-                            class="small-button p-button-rounded p-button-text"
-                            (click)="eliminar(productos.id)">
+
+                        <button pButton pRipple severity="danger" icon="pi pi-trash"
+                            class="small-button p-button-rounded p-button-text" (click)="eliminar(productos.id)">
                             Eliminar
                         </button>
                     </td>

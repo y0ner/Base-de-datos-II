@@ -15,7 +15,7 @@
 }
 
 .icon-container:hover {
-    transform: scale(1.05);        /* Agranda un poco la imagen al pasar el cursor */
+    transform: scale(1.03);        /* Agranda un poco la imagen al pasar el cursor */
 }
 
 .icon-img {
