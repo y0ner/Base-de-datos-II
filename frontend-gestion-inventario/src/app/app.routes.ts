@@ -30,11 +30,14 @@ import { MostrarInventarioComponent } from '../app/components/inventarios/mostra
 import { CrearInventarioComponent } from '../app/components/inventarios/crear-inventario/crear-inventario.component'; // Asegúrate de que la ruta sea correcta
 import { ActualizarInventarioComponent } from '../app/components/inventarios/actualizar-inventario/actualizar-inventario.component'; // Asegúrate de que la ruta sea correcta
 
+import { InicioComponent } from './components/inicio/inicio.component';
+
+
+
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: '/',
-        pathMatch: 'full'
+        component: InicioComponent
     },
 
     // CRUD CLIENTES

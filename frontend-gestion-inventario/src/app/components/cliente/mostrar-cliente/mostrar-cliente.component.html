@@ -35,23 +35,23 @@
             <td>{{ clientes.email }}</td>
             <td class="flex justify-content-center flex-row">
               <a 
-                pButton 
-                pRipple
-                icon="pi pi-sync"
-                severity="warning"
-                class="mr-1 button-size"
-                [ngStyle]="{'text-decoration': 'none'}" 
+                
+              pButton 
+              pRipple
+              icon="pi pi-sync"
+              severity="warning"
+              class="mr-1 small-button"
+              [ngStyle]="{'text-decoration': 'none'}" 
                 [routerLink]="['/clientes/edit', clientes.id]">
-                Editar
+              
               </a>
               <button 
-                pButton 
-                pRipple
-                severity="danger"
-                icon="pi pi-eraser"
-                class="mr-1 button-size"
+              pButton 
+              pRipple
+              severity="danger"
+              icon="pi pi-eraser"
+              class="mr-1 small-button"
                 (click)="eliminar(clientes.id)">
-                Eliminar
               </button>
             </td>
           </tr>

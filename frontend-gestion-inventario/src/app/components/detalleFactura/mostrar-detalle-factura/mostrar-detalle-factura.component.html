@@ -37,23 +37,23 @@
                     <td>{{ detallesfacturas.producto.nombre }}</td>
                     <td class="flex justify-content-center flex-wrap">
                         <a 
-                            pButton 
-                            pRipple
-                            icon="pi pi-sync"
-                            severity="warning"
-                            class="mr-1"
-                            [ngStyle]="{'text-decoration': 'none'}" 
+                        pButton 
+                        pRipple
+                        icon="pi pi-sync"
+                        severity="warning"
+                        class="mr-1 small-button"
+                        [ngStyle]="{'text-decoration': 'none'}" 
                             [routerLink]="['/detalles_facturas/edit', detallesfacturas.id]">
-                            Editar
+                          
                         </a>
                         <button 
-                            pButton 
-                            pRipple
-                            severity="danger"
-                            icon="pi pi-eraser"
-                            class="mr-1"
+                        pButton 
+                        pRipple
+                        severity="danger"
+                        icon="pi pi-eraser"
+                        class="mr-1 small-button"
                             (click)="eliminar(detallesfacturas.id)">
-                            Eliminar
+                        
                         </button>
                     </td>
                 </tr>

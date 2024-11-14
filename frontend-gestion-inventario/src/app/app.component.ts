@@ -14,5 +14,5 @@ import { FooterComponent } from './components/layout/footer/footer.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'frontend-Django1';
+  title = 'Gestion Inventario';
 }
