@@ -1,0 +1,14 @@
+.custom-table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+  }
+  
+  .custom-table td {
+    padding: 10px 15px;
+  }
+  
+  .small-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+  

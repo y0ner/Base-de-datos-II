@@ -1,0 +1,59 @@
+<p-card header="Crear Categoria" [style]="{ width: '100%' }">
+    <div>
+      <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+        <div class="grid">
+          <!-- Campo Nombre Categoria -->
+          <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+              <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+              <input
+                pInputText
+                formControlName="nombre"
+                placeholder="Nombre Categoria"
+                title="Nombre Categoria"
+                class="w-12"
+              />
+            </div>
+          </div>
+  
+          <!-- Campo Descripción Categoria -->
+          <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+              <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
+              <input
+                pInputText
+                formControlName="descripcion"
+                placeholder="Descripción Categoria"
+                title="Descripción Categoria"
+                class="w-12"
+              />
+            </div>
+          </div>
+        </div>
+  
+        <!-- Botones Guardar y Cancelar -->
+        <div class="flex justify-content-center flex-wrap">
+          <button
+            pButton
+            pRipple
+            label="Guardar"
+            icon="pi pi-save"
+            severity="info"
+            class="mr-4"
+            type="submit"
+          ></button>
+          <button
+            pButton
+            pRipple
+            label="Cancelar"
+            icon="pi pi-times-circle"
+            severity="warning"
+            class="mr-4"
+            type="button"
+            (click)="cancel()"
+          ></button>
+        </div>
+      </form>
+    </div>
+  </p-card>
+  
