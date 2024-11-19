@@ -15,22 +15,22 @@
             <ng-template pTemplate="header">
                 <tr>
                     <th>Nombre</th>
-                    <th>Descripción</th>
+                    <th>Marca</th>
                     <th>Precio</th>
-                    <th>Stock Actual</th>
-                    <th>Stock Mínimo</th>
-                    <th>Categoría</th>
+                    <th>Stock Minimo</th>
+                    <th>Cantidad</th>
+                    <th>Tipo de Producto</th>
                     <th class="acciones-col">Acciones</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-productos>
                 <tr>
                     <td>{{ productos.nombre }}</td>
-                    <td>{{ productos.descripcion }}</td>
+                    <td>{{ productos.marca }}</td>
                     <td>{{ productos.precio }}</td>
-                    <td>{{ productos.stock_actual }}</td>
-                    <td>{{ productos.stock_minimo }}</td>
-                    <td>{{ productos.categoria.nombre }}</td>
+                    <td>{{ productos.stockmin }}</td>
+                    <td>{{ productos.cantidad }}</td>
+                    <td>{{ productos.tipoproducto.nombre}}</td>
                     <td class="flex justify-content-center acciones-col">
                         <!-- Botón de editar -->
                         <a pButton pRipple icon="pi pi-sync" severity="warning"

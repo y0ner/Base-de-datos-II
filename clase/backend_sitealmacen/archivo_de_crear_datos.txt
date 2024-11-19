@@ -1,0 +1,12 @@
+como ejecutarlo?
+
+python manage.py shell
+
+from MisApps.clientes.management.commands.seed_data import Command
+
+command = Command()
+command.handle()
+
+verfica que no tienes ningun otro dato, y borralo para ejecutar esto,
+
+e instala = pip install django-extensions
