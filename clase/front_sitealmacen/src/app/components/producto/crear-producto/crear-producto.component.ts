@@ -1,68 +1,61 @@
 import { CommonModule } from '@angular/common';
 import { ProductoService } from '../../../services/producto.service';
-import { CategoriaService } from '../../../services/categoria.service';
+import { TipoProductoService } from '../../../services/tipo-producto.service';
 import { MessageService } from 'primeng/api';
-import {  Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
-import { MessageModule } from 'primeng/message'; // Importa MessageModule
+import { MessageModule } from 'primeng/message';
 import { Component, inject } from '@angular/core';
 import { ProductoI } from '../../../models/producto';
-import { FormsModule } from '@angular/forms'; // Importa FormsModule
+import { FormsModule } from '@angular/forms';
 import { TreeSelectModule } from 'primeng/treeselect';
 import { TreeNode } from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
+
 @Component({
   selector: 'app-crear-producto',
   standalone: true,
-  imports: [InputTextModule,CommonModule, ReactiveFormsModule, ToastModule, CardModule, ButtonModule, MessageModule, FormsModule, TreeSelectModule ],
+  imports: [InputTextModule, CommonModule, ReactiveFormsModule, ToastModule, CardModule, ButtonModule, MessageModule, FormsModule, TreeSelectModule],
   templateUrl: './crear-producto.component.html',
   styleUrls: ['./crear-producto.component.css'],
   providers: [MessageService]
-  
-})
-export class CrearProductoComponent {
-  public form: FormGroup; // Declarar la propiedad form
-  categories: TreeNode[] = [];
-  selectedCategory: TreeNode | undefined;
+})export class CrearProductoComponent {
+  public form: FormGroup;
+  tipoproducto: TreeNode[] = [];
+  selectedTipoProducto: TreeNode | undefined;
 
-  // Inicializar clienteService y formBuilder usando `inject`
   productoService = inject(ProductoService);
-  formBuilder = inject(FormBuilder); // Usar `inject` para obtener FormBuilder
+  formBuilder = inject(FormBuilder);
   messageService = inject(MessageService);
-  categoriaService = inject(CategoriaService);
+  tipoProductoService = inject(TipoProductoService);
 
-  constructor(
-    // private messageService: MessageService,
-    private router: Router,
-  ) { 
-    
+  constructor(private router: Router) {
     this.form = this.formBuilder.group({
-      categoria: ['', Validators.required],
+      tipoproducto: [null, Validators.required], // Cambiar a null para enviar el objeto completo
       nombre: ['', Validators.required],
-      descripcion: [''],
+      marca: [''],
       precio: [null, Validators.required],
-      stock_actual: [null, Validators.required],
-      stock_minimo: [null, Validators.required]
+      cantidad: [null, Validators.required],
+      stockmin: [null, Validators.required] // Renombrado a "stockmin"
     });
   }
+  
 
   ngOnInit(): void {
-    this.getCategorias();
+    this.getTipoProductos();
   }
-
-  getCategorias() {
-    this.categoriaService.getAllCategoria() 
-      .subscribe((data: any) => {
-        this.categories = data.map((categoria: any) => ({
-          label: categoria.nombre, 
-          data: categoria.id
-        }));
-      });
+  getTipoProductos() {
+    this.tipoProductoService.getAllTipoProducto().subscribe((data: any) => {
+      this.tipoproducto = data.map((tipo: any) => ({
+        label: tipo.nombre,
+        value: tipo.id // Cambia 'data' a 'value'
+      }));
+    });
   }
-
+  
   onSubmit(): void {
     if (this.form.invalid) {
       this.messageService.add({
@@ -73,10 +66,16 @@ export class CrearProductoComponent {
       });
       return;
     }
-
-    const formValue: ProductoI = this.form.value;
-    formValue.categoria = this.form.value.categoria.data;
-    this.productoService.createProducto(formValue).subscribe(
+  
+    const formValue = this.form.value;
+  
+    // Ajustar estructura para incluir tipoproducto como objeto
+    const payload = {
+      ...formValue,
+      tipoproducto: { id: formValue.tipoproducto } // Crear el objeto esperado
+    };
+  
+    this.productoService.createProducto(payload).subscribe(
       () => {
         this.messageService.add({
           severity: 'success',
@@ -86,7 +85,7 @@ export class CrearProductoComponent {
         });
         this.router.navigateByUrl('/productos');
       },
-      err => {
+      (err) => {
         console.error('Error al crear producto:', err);
         this.messageService.add({
           severity: 'error',
@@ -97,16 +96,16 @@ export class CrearProductoComponent {
       }
     );
   }
+  
 
   cancel() {
     this.router.navigateByUrl('/productos');
   }
 
   get nombre() { return this.form.get('nombre'); }
-  get categoria() { return this.form.get('categoria'); }
-  get descripcion() { return this.form.get('descripcion'); }
+  get tipoproductoControl() { return this.form.get('tipoproducto'); }
+  get marca() { return this.form.get('marca'); }
   get precio() { return this.form.get('precio'); }
-  get stock_actual() { return this.form.get('stock_actual'); }
+  get cantidad() { return this.form.get('cantidad'); }
   get stock_minimo() { return this.form.get('stock_minimo'); }
-
 }

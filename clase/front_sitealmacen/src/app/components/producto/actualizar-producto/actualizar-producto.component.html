@@ -1,4 +1,4 @@
-<p-card header="Editar Producto" [style]="{ width: '100%' }">
+<p-card header="Crear Producto" [style]="{ width: '100%' }">
     <ng-template pTemplate="header">
 
     </ng-template>
@@ -18,8 +18,8 @@
                 <div class="col-12 sm:col-6">
                     <div class="p-inputgroup mb-1">
                         <span class="p-inputgroup-addon"><i class="pi pi-fw pi-qrcode"></i></span>
-                        <p-treeSelect class="md:w-10rem w-12" containerStyleClass="w-12" [options]="categories"
-                            formControlName="categoria" placeholder="Seleccione una categoria" [showClear]="true"
+                        <p-treeSelect class="md:w-10rem w-12" containerStyleClass="w-12" [options]="tipoproductos"
+                            formControlName="tipoproducto" placeholder="Seleccione un Tipo de Producto" [showClear]="true"
                             selectionMode="single">
                         </p-treeSelect>
                     </div>

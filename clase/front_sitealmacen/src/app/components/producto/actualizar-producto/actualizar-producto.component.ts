@@ -9,10 +9,10 @@ import { ToastModule } from 'primeng/toast';
 import { MessageModule } from 'primeng/message'; // Importa MessageModule
 import { ProductoService } from '../../../services/producto.service';
 import { ProductoI } from '../../../models/producto';
-import { CategoriaService } from '../../../services/categoria.service';
 import { TreeSelectModule } from 'primeng/treeselect';
 import { TreeNode } from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
+import { TipoProductoService } from '../../../services/tipo-producto.service';
 
 @Component({
   selector: 'app-actualizar-producto',
@@ -26,13 +26,13 @@ import { InputTextModule } from 'primeng/inputtext';
 export class ActualizarProductoComponent implements OnInit{
   public id: number =0;
   //public form: FormGroup;
-  categories: TreeNode[] = [];
-  selectedCategory: TreeNode | undefined;
+  tipoproductos: { label: string; data: number }[] = [];
+  selectedTipoProducto: TreeNode | undefined;
 
   productoService = inject(ProductoService);
   formBuilder = inject(FormBuilder); // Usar `inject` para obtener FormBuilder
   messageService = inject(MessageService);
-  categoriaService = inject(CategoriaService);
+  tipoProductoService = inject(TipoProductoService);
 
   public form:FormGroup=this.formBuilder.group({
     id: [''],
@@ -41,7 +41,7 @@ export class ActualizarProductoComponent implements OnInit{
     precio: ['', [Validators.required]],
     stock_actual: ['', [Validators.required]],
     stock_minimo: ['', [Validators.required]],
-    categoria: ['', [Validators.required]]
+    tipoproducto: ['', [Validators.required]]
   });
   constructor(
     // private messageService: MessageService,
@@ -54,20 +54,20 @@ export class ActualizarProductoComponent implements OnInit{
     this.id = this.route.snapshot.params['id'];
     // let idCliente = this.route.snapshot.paramMap.get("id");
     this.getDatos(this.id);
-    this.getCategorias();
+    this.getTipoProductos();
 
   }
 
-  getCategorias() {
-    this.categoriaService.getAllCategoria() 
+
+  getTipoProductos() {
+    this.tipoProductoService.getAllTipoProducto()
       .subscribe((data: any) => {
-        this.categories = data.map((categoria: any) => ({
-          label: categoria.nombre, 
-          data: categoria.id
+        this.tipoproductos = data.map((tipo: any) => ({
+          label: tipo.nombre,
+          data: tipo.id
         }));
       });
   }
-
   getDatos(id: number){
     this.productoService.getOneProducto(id)
     .subscribe({
@@ -89,7 +89,7 @@ export class ActualizarProductoComponent implements OnInit{
     }
   
     const formValue: ProductoI = this.form.value;
-    formValue.categoria = this.form.value.categoria.data; // Añade esta línea
+    formValue.tipoproducto = this.form.value.tipoproducto.data; // Añade esta línea
     const id: number = this.form.value.id;
   
     this.productoService.updateProducto(id, formValue).subscribe(
@@ -124,5 +124,5 @@ export class ActualizarProductoComponent implements OnInit{
   get precio() { return this.form.get('precio'); }
   get stock_actual() { return this.form.get('email'); }
   get stock_minimo() { return this.form.get('stock_minimo'); }
-  get categoria() { return this.form.get('categoria'); }
+  get tipoproducto() { return this.form.get('tipoproducto'); } 
 }

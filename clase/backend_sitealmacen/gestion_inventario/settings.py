@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'MisApps.producto',
     'MisApps.clientes',
+    'MisApps.Ventas',
 ]
 
 REST_FRAMEWORK = {

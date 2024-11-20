@@ -1,10 +1,11 @@
-import { CategoriaI } from './categoria'; // Ajusta la ruta si es necesario
+import { TipoProductoI } from './tipo-producto';
+
 export interface ProductoI {
-  id: number;
+  id?: number;
   nombre: string;
-  descripcion: string;
+  descripcion?: string;
   precio: number;
   stock_actual: number;
   stock_minimo: number;
-  categoria: CategoriaI | null;  // Cambia de `null` a `CategoriaI | null`
+  tipoproducto: TipoProductoI | number; // Permite usar el ID o el objeto completo
 }
