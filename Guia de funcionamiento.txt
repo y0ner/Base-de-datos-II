@@ -1,0 +1,9 @@
+1. Para el funcionamiento del backend es necesario primero crear una maquina 
+virtual dedicada a nuestra base de datos de preferencia, la carpeta de requerimiento 
+tiene 3 archivos que seran utiles para instalar las librerias de python necesarias para trabajar con 
+la base datos requerida:
+
+    pip install -r requirements.txt
+
+Crearemos nuestro entorno virtual y posteriormente instalaremos las librerias necesarias para
+la base datos en ella.
