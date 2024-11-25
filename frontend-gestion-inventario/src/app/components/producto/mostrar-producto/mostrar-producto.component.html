@@ -1,9 +1,9 @@
 <p-card class="w-12 h-full">
     <ng-template pTemplate="header">
         <div class="flex justify-content-between items-center">
-            <h3 class="ml-4 text-xl font-semibold text-gray-800">Registro de Producto</h3>
+            <h3 class="ml-4 text-xl font-semibold text-gray-800">Product Registration</h3>
             <div class="mt-2 mr-2">
-                <a pButton pRipple label="Crear Producto" icon="pi pi-user-plus"
+                <a pButton pRipple label="Create Product" icon="pi pi-user-plus"
                     class="bg-cyan-600 text-white hover:bg-cyan-700 px-4 py-2 rounded-md"
                     [ngStyle]="{'text-decoration': 'none'}" [routerLink]="['/productos/nuevo']">
                 </a>
@@ -14,34 +14,34 @@
         <p-table [value]="productos" class="custom-table" [rows]="10" [paginator]="true" [responsive]="true">
             <ng-template pTemplate="header">
                 <tr>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Precio</th>
-                    <th>Stock Actual</th>
-                    <th>Stock Mínimo</th>
-                    <th>Categoría</th>
-                    <th class="acciones-col">Acciones</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Current Stock</th>
+                    <th>Minimum Stock</th>
+                    <th>Category</th>
+                    <th class="acciones-col">Actions</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-productos>
                 <tr>
-                    <td>{{ productos.nombre }}</td>
-                    <td>{{ productos.descripcion }}</td>
-                    <td>{{ productos.precio }}</td>
-                    <td>{{ productos.stock_actual }}</td>
-                    <td>{{ productos.stock_minimo }}</td>
-                    <td>{{ productos.categoria.nombre }}</td>
+                    <td>{{ productos.name }}</td>
+                    <td>{{ productos.description }}</td>
+                    <td>{{ productos.price }}</td>
+                    <td>{{ productos.current_stock }}</td>
+                    <td>{{ productos.minimum_stock }}</td>
+                    <td>{{ productos.category.name }}</td>
                     <td class="flex justify-content-center acciones-col">
-                        <!-- Botón de editar -->
+                        <!-- Edit button -->
                         <a pButton pRipple icon="pi pi-sync" severity="warning"
                             class="small-button p-button-rounded p-button-text"
                             [routerLink]="['/productos/edit', productos.id]">
-                            Editar
+                            
                         </a>
 
                         <button pButton pRipple severity="danger" icon="pi pi-trash"
                             class="small-button p-button-rounded p-button-text" (click)="eliminar(productos.id)">
-                            Eliminar
+                            
                         </button>
                     </td>
                 </tr>

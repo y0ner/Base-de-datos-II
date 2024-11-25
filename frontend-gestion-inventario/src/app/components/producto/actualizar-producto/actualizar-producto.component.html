@@ -1,17 +1,16 @@
-<p-card header="Editar Producto" [style]="{ width: '100%' }">
+<p-card header="Edit Product" [style]="{ width: '100%' }">
     <ng-template pTemplate="header">
 
     </ng-template>
     <div>
         <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
 
-
             <div class="grid">
                 <div class="col-12 sm:col-6">
                     <div class="p-inputgroup mb-1">
                         <span class="p-inputgroup-addon"><i class="pi pi-receipt"></i></span>
-                        <input class="w-12" type="text" pInputText formControlName="nombre"
-                            placeholder="Nombre Producto" title="Nombre Producto">
+                        <input class="w-12" type="text" pInputText formControlName="name"
+                            placeholder="Product Name" title="Product Name">
                     </div>
                 </div>
 
@@ -19,7 +18,7 @@
                     <div class="p-inputgroup mb-1">
                         <span class="p-inputgroup-addon"><i class="pi pi-fw pi-qrcode"></i></span>
                         <p-treeSelect class="md:w-10rem w-12" containerStyleClass="w-12" [options]="categories"
-                            formControlName="categoria" placeholder="Seleccione una categoria" [showClear]="true"
+                            formControlName="category" placeholder="Select a Category" [showClear]="true"
                             selectionMode="single">
                         </p-treeSelect>
                     </div>
@@ -28,43 +27,41 @@
                 <div class="col-12 sm:col-6">
                     <div class="p-inputgroup mb-1 ">
                         <span class="p-inputgroup-addon"><i class="pi pi-pencil"></i></span>
-                        <input class="w-12" type="text" pInputText formControlName="descripcion"
-                            placeholder="descripcion Producto" title="descripcion Producto">
+                        <input class="w-12" type="text" pInputText formControlName="description"
+                            placeholder="Product Description" title="Product Description">
                     </div>
                 </div>
 
                 <div class="col-12 sm:col-6">
                     <div class="p-inputgroup mb-1">
                         <span class="p-inputgroup-addon"><i class="pi pi-dollar"></i></span>
-                        <input class="w-12" type="text" pInputText formControlName="precio"
-                            placeholder="Precio Producto" title="Precio Producto">
+                        <input class="w-12" type="text" pInputText formControlName="price"
+                            placeholder="Product Price" title="Product Price">
                     </div>
                 </div>
 
                 <div class="col-12 sm:col-6">
                     <div class="p-inputgroup mb-1">
                         <span class="p-inputgroup-addon"><i class="pi pi-cart-minus"></i></span>
-                        <input class="w-12" type="text" pInputText formControlName="stock_actual"
-                            placeholder="Stock Actual" title="Stock Actual">
+                        <input class="w-12" type="text" pInputText formControlName="current_stock"
+                            placeholder="Current Stock" title="Current Stock">
                     </div>
                 </div>
 
                 <div class="col-12 sm:col-6">
                     <div class="p-inputgroup mb-1">
                         <span class="p-inputgroup-addon"><i class="pi pi-cart-minus"></i></span>
-                        <input class="w-12" type="text" pInputText formControlName="stock_minimo"
-                            placeholder="Stock Minimo" title="Stock Minimo">
+                        <input class="w-12" type="text" pInputText formControlName="minimum_stock"
+                            placeholder="Minimum Stock" title="Minimum Stock">
                     </div>
                 </div>
             </div>
-
-           
 
             <div class="flex justify-content-center flex-wrap">
                 <button 
                     pButton 
                     pRipple
-                    label="Guardar"
+                    label="Save"
                     icon="pi pi-save"
                     severity="info"
                     class="mr-4"
@@ -74,7 +71,7 @@
                 <button 
                     pButton 
                     pRipple
-                    label="Cancelar"
+                    label="Cancel"
                     icon="pi pi-times-circle"
                     severity="warning"
                     class="mr-4"
@@ -83,9 +80,7 @@
                 ></button>
            </div>
 
-
         </form>
-
     </div>
     <ng-template pTemplate="footer">
 

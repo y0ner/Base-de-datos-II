@@ -36,9 +36,9 @@ export class CrearClienteComponent implements OnInit {
   ) { 
     // Inicializar el formulario en el constructor
     this.form = this.formBuilder.group({
-      nombre: ['', [Validators.required]],
-      direccion: ['', [Validators.required]],
-      telefono: ['', [Validators.required]],
+      name: ['', [Validators.required]],
+      address: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
     });
   }
@@ -86,11 +86,11 @@ export class CrearClienteComponent implements OnInit {
     this.router.navigateByUrl('/clientes');
   }
 
-  get nombre() { return this.form.get('nombre'); }
+  get name() { return this.form.get('name'); }
   
-  get direccion() { return this.form.get('direccion'); }
+  get address() { return this.form.get('address'); }
 
-  get telefono() { return this.form.get('telefono'); }
+  get phone() { return this.form.get('phone'); }
 
   get email() { return this.form.get('email'); }
 

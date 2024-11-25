@@ -50,8 +50,8 @@ export class MostrarDetalleFacturaComponent implements OnInit{
   eliminar(id: number): void {
     // Muestra el cuadro de diálogo de confirmación
     this.confirmationService.confirm({
-      message: '¿Estás seguro de que deseas eliminar los detalles de la factura?',
-      header: 'Confirmación',
+      message: 'Are you sure you want to delete this invoice details?',
+      header: 'Confirmation',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         // Lógica para eliminar el cliente

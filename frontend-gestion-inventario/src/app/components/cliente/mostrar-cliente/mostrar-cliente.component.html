@@ -1,12 +1,12 @@
 <p-card class="w-full h-full shadow-lg border-rounded">
   <ng-template pTemplate="header">
     <div class="flex justify-content-between items-center">
-      <h3 class="ml-4 text-xl font-semibold text-gray-800">Registro de Clientes</h3>
+      <h3 class="ml-4 text-xl font-semibold text-gray-800">Customer Registration</h3>
       <div class="mt-2 mr-2">
         <a 
           pButton 
           pRipple
-          label="Crear Cliente" 
+          label="Create Customer"
           icon="pi pi-user-plus"
           class="bg-cyan-600 text-white hover:bg-cyan-700 px-4 py-2 rounded-md"
           [ngStyle]="{'text-decoration': 'none'}" 
@@ -20,18 +20,18 @@
     <p-table [value]="clientes" class="custom-table" [rows]="10" [paginator]="true" [responsive]="true">
       <ng-template pTemplate="header">
         <tr>
-          <th class="p-text-center">Nombre</th>
-          <th class="p-text-center">Dirección</th>
-          <th class="p-text-center">Teléfono</th>
+          <th class="p-text-center">Name</th>
+          <th class="p-text-center">Address</th>
+          <th class="p-text-center">Phone</th>
           <th class="p-text-center">E-mail</th>
-          <th class="p-text-center">Acciones</th>
+          <th class="p-text-center">Actions</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-clientes>
         <tr>
-          <td>{{ clientes.nombre }}</td>
-          <td>{{ clientes.direccion }}</td>
-          <td>{{ clientes.telefono }}</td>
+          <td>{{ clientes.name }}</td>
+          <td>{{ clientes.address }}</td>
+          <td>{{ clientes.phone }}</td>
           <td>{{ clientes.email }}</td>
           <td class="flex justify-content-center space-x-2">
             <a 

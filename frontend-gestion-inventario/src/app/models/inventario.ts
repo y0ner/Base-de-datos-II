@@ -2,12 +2,12 @@
 
 export interface InventarioI {
     id?: number;
-    producto: {
+    product: {
         id: number;
-        nombre: string;
+        name: string;
     };
-    tipo_movimiento: string; // 'entrada' o 'salida'
-    cantidad: number;
-    fecha_movimiento: Date;
-    observaciones?: string; // Campo opcional
+    movement_type: string; // 'entrada' o 'salida'
+    quantity: number;
+    movement_date: Date;
+    remarks?: string; // Campo opcional
 }

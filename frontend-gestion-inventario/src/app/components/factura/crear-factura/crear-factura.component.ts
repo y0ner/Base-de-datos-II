@@ -24,7 +24,7 @@ import { InputTextModule } from 'primeng/inputtext';
 })
 export class CrearFacturaComponent {
   public form: FormGroup; // Declarar la propiedad form
-  client: TreeNode[] = [];
+  customers: TreeNode[] = [];
   selectedClient: TreeNode | undefined;
 
   // Inicializar clienteService y formBuilder usando `inject`
@@ -40,7 +40,7 @@ export class CrearFacturaComponent {
     // Inicializar el formulario en el constructor
     this.form = this.formBuilder.group({
       total: ['', [Validators.required]],
-      cliente: ['', [Validators.required]],
+      customer: ['', [Validators.required]],
       
     });
   }
@@ -52,9 +52,9 @@ export class CrearFacturaComponent {
   getClientes() {
     this.clienteService.getAllCliente() 
       .subscribe((data: any) => {
-        this.client = data.map((cliente: any) => ({
-          label: cliente.nombre, 
-          data: cliente.id
+        this.customers = data.map((customer: any) => ({
+          label: customer.name, 
+          data: customer.id
         }));
       });
   }
@@ -72,7 +72,7 @@ export class CrearFacturaComponent {
     }
 
     const formValue: FacturaI = this.form.value;
-    formValue.cliente = this.form.value.cliente.data;
+    formValue.customer = this.form.value.customer.data;
     this.facturaService.createFactura(formValue).subscribe(
       () => {
         this.messageService.add({
@@ -100,6 +100,6 @@ export class CrearFacturaComponent {
   }
 
   get total() { return this.form.get('total'); }
-  get cliente() { return this.form.get('cliente'); }
+  get customer() { return this.form.get('customer'); }
 
 }

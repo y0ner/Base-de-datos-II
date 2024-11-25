@@ -1,8 +1,8 @@
 export interface DetalleFacturaI {
     id?: number,
-    cantidad: null,
-    precio_unitario: null,
+    quantity: null,
+    unit_price: null,
     subtotal: null,
-    factura: null,
-    producto: null
+    invoice: null,
+    product: null
 }

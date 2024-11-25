@@ -40,12 +40,12 @@ export class CrearProductoComponent {
   ) { 
     
     this.form = this.formBuilder.group({
-      categoria: ['', Validators.required],
-      nombre: ['', Validators.required],
-      descripcion: [''],
-      precio: [null, Validators.required],
-      stock_actual: [null, Validators.required],
-      stock_minimo: [null, Validators.required]
+      category: ['', Validators.required],
+      name: ['', Validators.required],
+      description: [''],
+      price: [null, Validators.required],
+      current_stock: [null, Validators.required],
+      minimum_stock: [null, Validators.required]
     });
   }
 
@@ -56,9 +56,9 @@ export class CrearProductoComponent {
   getCategorias() {
     this.categoriaService.getAllCategoria() 
       .subscribe((data: any) => {
-        this.categories = data.map((categoria: any) => ({
-          label: categoria.nombre, 
-          data: categoria.id
+        this.categories = data.map((category: any) => ({
+          label: category.name, 
+          data: category.id
         }));
       });
   }
@@ -75,7 +75,7 @@ export class CrearProductoComponent {
     }
 
     const formValue: ProductoI = this.form.value;
-    formValue.categoria = this.form.value.categoria.data;
+    formValue.category = this.form.value.category.data;
     this.productoService.createProducto(formValue).subscribe(
       () => {
         this.messageService.add({
@@ -102,11 +102,11 @@ export class CrearProductoComponent {
     this.router.navigateByUrl('/productos');
   }
 
-  get nombre() { return this.form.get('nombre'); }
-  get categoria() { return this.form.get('categoria'); }
-  get descripcion() { return this.form.get('descripcion'); }
-  get precio() { return this.form.get('precio'); }
-  get stock_actual() { return this.form.get('stock_actual'); }
-  get stock_minimo() { return this.form.get('stock_minimo'); }
+  get name() { return this.form.get('name'); }
+  get category() { return this.form.get('category'); }
+  get description() { return this.form.get('description'); }
+  get price() { return this.form.get('price'); }
+  get current_stock() { return this.form.get('current_stock'); }
+  get minimum_stock() { return this.form.get('minimum_stock'); }
 
 }

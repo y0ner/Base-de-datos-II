@@ -16,33 +16,33 @@ export class AsideComponent {
   ngOnInit(): void {
     this.items = [
       {
-        label: 'Clientes',
+        label: 'Customers',
         icon: 'pi pi-fw pi-users',
         routerLink: '/clientes'
         
       },
       {
-        label: 'Categorias',
+        label: 'Categories',
         icon: 'pi pi-fw pi-qrcode',
         routerLink: '/categorias'
       },
       {
-        label: 'Productos',
+        label: 'Products',
         icon: 'pi pi-fw pi-shopping-bag',
         routerLink:   '/productos'
       },
       {
-        label: 'Facturas',
+        label: 'Invoices',
         icon: 'pi pi-fw pi-clipboard',
         routerLink: '/facturas'
       },
       {
-        label: 'Detalles de Facturas',
+        label: 'Invoice Details',
         icon: 'pi pi-fw pi-shopping-cart',
         routerLink: '/detalles_facturas'
       },
       {
-        label: 'Inventarios',
+        label: 'Inventories',
         icon: 'pi pi-fw pi-chart-scatter',
         routerLink: '/inventarios'
       },

@@ -1,4 +1,4 @@
-<p-card header="Editar Facturas" [style]="{ width: '100%' }">
+<p-card header="Edit Invoice" [style]="{ width: '100%' }">
     <ng-template pTemplate="header">
 
     </ng-template>
@@ -11,46 +11,27 @@
                     <div class="p-inputgroup mb-1">
                         <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
                         <input class="w-12" type="text" pInputText formControlName="total"
-                            placeholder="total cliente" title="total cliente">
+                            placeholder="Total amount" title="Total amount">
                     </div>
                 </div>
 
                 <div class="col-12 sm:col-6">
                     <div class="p-inputgroup mb-1">
                         <span class="p-inputgroup-addon"><i class="pi pi-fw pi-qrcode"></i></span>
-                        <p-treeSelect class="md:w-10rem w-12" containerStyleClass="w-12" [options]="client"
-                            formControlName="cliente" placeholder="Seleccione un cliente" [showClear]="true"
+                        <p-treeSelect class="md:w-10rem w-12" containerStyleClass="w-12" [options]="customers"
+                            formControlName="customer" placeholder="Select a customer" [showClear]="true"
                             selectionMode="single">
                         </p-treeSelect>
                     </div>
                 </div>
 
-                <!-- <div class="col-12 sm:col-6">
-                    <div class="p-inputgroup mb-1 ">
-                        <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
-                        <input class="w-12" type="text" pInputText formControlName="cliente"
-                            placeholder="cliente" title="cliente">
-                    </div>
-                </div> -->
-
-        
-                <!-- <div class="col-12 sm:col-6">
-                    <div class="p-inputgroup mb-1">
-                        <span class="p-inputgroup-addon"><i class="pi pi-fw pi-qrcode"></i></span>
-                        <p-treeSelect class="md:w-10rem w-12" containerStyleClass="w-12" [options]="categories"
-                            formControlName="categoria" placeholder="Seleccione una categoria" [showClear]="true"
-                            selectionMode="single">
-                        </p-treeSelect>
-                    </div>
-                </div> -->
-
             </div>
 
             <div class="flex justify-content-center flex-wrap">
-                <button pButton pRipple label="Aceptar" icon="pi pi-save" severity="info" class="mr-4"
+                <button pButton pRipple label="Accept" icon="pi pi-save" severity="info" class="mr-4"
                     type="submit"></button>
 
-                <button pButton pRipple label="Cancelar" icon="pi pi-times-circle" severity="warning" class="mr-4"
+                <button pButton pRipple label="Cancel" icon="pi pi-times-circle" severity="warning" class="mr-4"
                     type="button" (click)="cancel()"></button>
             </div>
 
@@ -62,3 +43,4 @@
 
     </ng-template>
 </p-card>
+

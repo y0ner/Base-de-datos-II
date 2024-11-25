@@ -1,12 +1,12 @@
 <p-card class="w-12 h-full">
     <ng-template pTemplate="header">
         <div class="flex justify-content-between items-center">
-            <h3 class="ml-4 text-xl font-semibold text-gray-800">Registro de Facturas</h3>
+            <h3 class="ml-4 text-xl font-semibold text-gray-800">Invoice Registration</h3>
             <div class="mt-2 mr-2">
                 <a 
                     pButton 
                     pRipple
-                    label="Crear Factura" 
+                    label="Create Invoice" 
                     icon="pi pi-user-plus"
                     class="bg-cyan-600 text-white hover:bg-cyan-700 px-4 py-2 rounded-md"
                     [ngStyle]="{'text-decoration': 'none'}" 
@@ -20,16 +20,16 @@
             <ng-template pTemplate="header">
                 <tr>
                     <th>Total</th>
-                    <th>Cliente</th>
-                    <th class="flex justify-content-center flex-wrap">Acciones</th>
+                    <th>Customer</th>
+                    <th class="flex justify-content-center flex-wrap">Actions</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-facturas>
                 <tr>
                     <td>{{ facturas.total }}</td>
-                    <td>{{ facturas.cliente.nombre }}</td>
+                    <td>{{ facturas.customer.name }}</td>
                     <td class="flex justify-content-center space-x-2">
-                        <!-- Botón de editar -->
+                        <!-- Edit Button -->
                         <a 
                             pButton 
                             pRipple
@@ -38,10 +38,10 @@
                             class="small-button p-button-rounded p-button-text"
                             [ngStyle]="{'text-decoration': 'none'}" 
                             [routerLink]="['/facturas/edit', facturas.id]">
-                            Editar
+                            Edit
                         </a>
                         
-                        <!-- Botón de eliminar -->
+                        <!-- Delete Button -->
                         <button 
                             pButton 
                             pRipple
@@ -49,7 +49,7 @@
                             icon="pi pi-trash"
                             class="small-button p-button-rounded p-button-text"
                             (click)="eliminar(facturas.id)">
-                            Eliminar
+                            Delete
                         </button>
                     </td>
                 </tr>

@@ -27,8 +27,8 @@ export class ActualizarCategriaComponent implements OnInit{
 
   public form:FormGroup=this.formBuilder.group({
     id: [''],
-    nombre: ['', [Validators.required]],
-    descripcion: ['', [Validators.required]],
+    name: ['', [Validators.required]],
+    description: ['', [Validators.required]],
   });
   
   categoriaService = inject(CategoriaService);
@@ -84,6 +84,6 @@ export class ActualizarCategriaComponent implements OnInit{
     this.router.navigateByUrl('/categorias');
   }
 
-  get nombre() { return this.form.get('nombre'); }
-  get descripcion() { return this.form.get('direccion'); }
+  get name() { return this.form.get('nombre'); }
+  get description() { return this.form.get('direccion'); }
 }

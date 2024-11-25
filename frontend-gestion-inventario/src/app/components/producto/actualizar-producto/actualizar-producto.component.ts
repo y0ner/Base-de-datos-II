@@ -36,12 +36,12 @@ export class ActualizarProductoComponent implements OnInit{
 
   public form:FormGroup=this.formBuilder.group({
     id: [''],
-    nombre: ['', [Validators.required]],
-    descripcion: ['', [Validators.required]],
-    precio: ['', [Validators.required]],
-    stock_actual: ['', [Validators.required]],
-    stock_minimo: ['', [Validators.required]],
-    categoria: ['', [Validators.required]]
+    name: ['', [Validators.required]],
+    description: ['', [Validators.required]],
+    price: ['', [Validators.required]],
+    current_stock: ['', [Validators.required]],
+    minimum_stock: ['', [Validators.required]],
+    category: ['', [Validators.required]]
   });
   constructor(
     // private messageService: MessageService,
@@ -61,9 +61,9 @@ export class ActualizarProductoComponent implements OnInit{
   getCategorias() {
     this.categoriaService.getAllCategoria() 
       .subscribe((data: any) => {
-        this.categories = data.map((categoria: any) => ({
-          label: categoria.nombre, 
-          data: categoria.id
+        this.categories = data.map((category: any) => ({
+          label: category.name, 
+          data: category.id
         }));
       });
   }
@@ -89,7 +89,7 @@ export class ActualizarProductoComponent implements OnInit{
     }
   
     const formValue: ProductoI = this.form.value;
-    formValue.categoria = this.form.value.categoria.data; // Añade esta línea
+    formValue.category = this.form.value.category.data; // Añade esta línea
     const id: number = this.form.value.id;
   
     this.productoService.updateProducto(id, formValue).subscribe(

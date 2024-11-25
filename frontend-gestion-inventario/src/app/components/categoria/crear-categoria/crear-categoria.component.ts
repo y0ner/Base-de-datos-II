@@ -35,8 +35,8 @@ export class CrearCategoriaComponent {
   ) { 
     // Inicializar el formulario en el constructor
     this.form = this.formBuilder.group({
-      nombre: ['', [Validators.required]],
-      descripcion: ['', [Validators.required]],
+      name: ['', [Validators.required]],
+      description: ['', [Validators.required]],
     });
   }
 
@@ -83,6 +83,6 @@ export class CrearCategoriaComponent {
     this.router.navigateByUrl('/categorias');
   }
 
-  get nombre() { return this.form.get('nombre'); }
-  get descripcion() { return this.form.get('descripcion'); }
+  get name() { return this.form.get('nombre'); }
+  get description() { return this.form.get('descripcion'); }
 }

@@ -29,7 +29,7 @@ export class ActualizarDetalleFacturaComponent {
   facturas: TreeNode[] = [];
   selectedFactura: TreeNode | undefined;
 
-  Product: TreeNode[] = [];
+  Products: TreeNode[] = [];
   selectedProduct: TreeNode | undefined;
 
   detallefacturaService = inject(DetallefacturaService);
@@ -40,11 +40,11 @@ export class ActualizarDetalleFacturaComponent {
 
   public form:FormGroup=this.formBuilder.group({
     id: [''],
-    cantidad: ['', [Validators.required]],
-    precio_unitario: ['', [Validators.required]],
+    quantity: ['', [Validators.required]],
+    unit_price: ['', [Validators.required]],
     subtotal: ['', [Validators.required]],
-    factura: ['', [Validators.required]],
-    producto: ['', [Validators.required]],
+    invoice: ['', [Validators.required]],
+    product: ['', [Validators.required]],
 
   });
   constructor(
@@ -65,9 +65,9 @@ export class ActualizarDetalleFacturaComponent {
   getFactura() {
     this.facturaService.getAllFacturas() 
       .subscribe((data: any) => {
-        this.facturas = data.map((factura: any) => ({
-          label: `${factura.cliente.nombre} - ${factura.fecha_factura}`, // Ajusta lo que quieres mostrar
-          data: factura.id
+        this.facturas = data.map((invoice: any) => ({
+          label: `${invoice.customer.name} - ${invoice.invoice_date}`, // Ajusta lo que quieres mostrar
+          data: invoice.id
         }));
       });
 }
@@ -75,9 +75,9 @@ export class ActualizarDetalleFacturaComponent {
   getProducto() {
     this.productoService.getAllProducto() 
       .subscribe((data: any) => {
-        this.Product = data.map((producto: any) => ({
-          label: producto.nombre, 
-          data: producto.id
+        this.Products = data.map((product: any) => ({
+          label: product.name, 
+          data: product.id
         }));
       });
   }
@@ -95,8 +95,8 @@ export class ActualizarDetalleFacturaComponent {
   onSubmit(): void {
     const formValue: DetalleFacturaI = this.form.value;
     const id: number =  this.form.value.id
-    formValue.factura = this.form.value.factura.data;
-    formValue.producto = this.form.value.producto.data;
+    formValue.invoice = this.form.value.invoice.data;
+    formValue.product = this.form.value.product.data;
     this.detallefacturaService.updateDetalleFactura(id, formValue).subscribe(
       () => {
   
@@ -115,9 +115,9 @@ export class ActualizarDetalleFacturaComponent {
     this.router.navigateByUrl('/detalles_facturas');
   }
 
-  get cantidad() { return this.form.get('cantidad'); }
-  get precio_unitario() { return this.form.get('precio_unitario'); }
+  get quantity() { return this.form.get('quantity'); }
+  get unit_price() { return this.form.get('unit_price'); }
   get subtotal() { return this.form.get('subtotal'); }
-  get factura() { return this.form.get('factura'); }
-  get producto() { return this.form.get('producto'); }
+  get invoice() { return this.form.get('invoice'); }
+  get product() { return this.form.get('product'); }
 }

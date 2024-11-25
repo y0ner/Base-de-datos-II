@@ -25,7 +25,7 @@ import { TreeNode } from 'primeng/api';
 })
 export class ActualizarInventarioComponent implements OnInit {
   public inventarioId: number = 0;
-  public Product: TreeNode[] = [];
+  public Products: TreeNode[] = [];
   public selectedProduct: TreeNode | undefined;
   public inventarioForm: FormGroup;
   
@@ -39,11 +39,11 @@ export class ActualizarInventarioComponent implements OnInit {
   constructor() {
     this.inventarioForm = this.formBuilder.group({
       id: [''],
-      producto: ['', Validators.required],
-      tipo_movimiento: ['', Validators.required],
-      cantidad: ['', [Validators.required, Validators.min(1)]],
-      fecha_movimiento: ['', Validators.required],
-      observaciones: ['']
+      product: ['', Validators.required],
+      movement_type: ['', Validators.required],
+      quantity: ['', [Validators.required, Validators.min(1)]],
+      movement_date: ['', Validators.required],
+      remarks: ['']
     });
   }
 
@@ -57,9 +57,9 @@ export class ActualizarInventarioComponent implements OnInit {
 
   getProducto() {
     this.productoService.getAllProducto().subscribe((data: any) => {
-      this.Product = data.map((producto: any) => ({
-        label: producto.nombre,
-        data: producto.id
+      this.Products = data.map((product: any) => ({
+        label: product.name,
+        data: product.id
       }));
     });
   }
@@ -68,18 +68,18 @@ export class ActualizarInventarioComponent implements OnInit {
     this.inventarioService.getInventarioById(id).subscribe((data: InventarioI) => {
       this.inventarioForm.patchValue({
         id: data.id,
-        producto: { data: data.producto },  // Ajustar para TreeSelect
-        tipo_movimiento: data.tipo_movimiento,
-        cantidad: data.cantidad,
-        fecha_movimiento: data.fecha_movimiento,
-        observaciones: data.observaciones
+        product: { data: data.product },  // Ajustar para TreeSelect
+        movement_type: data.movement_type,
+        quantity: data.quantity,
+        movement_date: data.movement_date,
+        remarks: data.remarks
       });
     });
   }
 
   actualizarInventario(): void {
     const formValue = { ...this.inventarioForm.value };
-    formValue.producto = this.inventarioForm.value.producto.data; // Obtener ID del producto seleccionado
+    formValue.product = this.inventarioForm.value.product.data; // Obtener ID del producto seleccionado
 
     this.inventarioService.updateInventario(this.inventarioId, formValue).subscribe({
       next: () => {
@@ -96,9 +96,9 @@ export class ActualizarInventarioComponent implements OnInit {
     this.router.navigate(['/inventarios']);
   }
 
-  get producto() { return this.inventarioForm.get('producto'); }
-  get tipo_movimiento() { return this.inventarioForm.get('tipo_movimiento'); }
-  get cantidad() { return this.inventarioForm.get('cantidad'); }
-  get fecha_movimiento() { return this.inventarioForm.get('fecha_movimiento'); }
-  get observaciones() { return this.inventarioForm.get('observaciones'); }
+  get product() { return this.inventarioForm.get('product'); }
+  get movement_type() { return this.inventarioForm.get('movement_type'); }
+  get quantity() { return this.inventarioForm.get('quantity'); }
+  get movement_date() { return this.inventarioForm.get('movement_date'); }
+  get remarks() { return this.inventarioForm.get('remarks'); }
 }

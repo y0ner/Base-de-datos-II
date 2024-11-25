@@ -29,7 +29,7 @@ export class CrearDetalleFacturaComponent {
   facturas: TreeNode[] = [];
   selectedFactura: TreeNode | undefined;
 
-  Product: TreeNode[] = [];
+  Products: TreeNode[] = [];
   selectedProduct: TreeNode | undefined;
 
   // Inicializar clienteService y formBuilder usando `inject`
@@ -44,11 +44,11 @@ export class CrearDetalleFacturaComponent {
   ) { 
     // Inicializar el formulario en el constructor
     this.form = this.formBuilder.group({
-      cantidad: ['', [Validators.required]],
-      precio_unitario: ['', [Validators.required]],
+      quantity: ['', [Validators.required]],
+      unit_price: ['', [Validators.required]],
       subtotal: ['', [Validators.required]],
-      factura: ['', [Validators.required]],
-      producto: ['', [Validators.required]],
+      invoice: ['', [Validators.required]],
+      product: ['', [Validators.required]],
       
     });
   }
@@ -62,9 +62,9 @@ export class CrearDetalleFacturaComponent {
   getFactura() {
     this.facturaService.getAllFacturas() 
       .subscribe((data: any) => {
-        this.facturas = data.map((factura: any) => ({
-          label: `${factura.cliente.nombre} - ${factura.fecha_factura}`, // Ajusta lo que quieres mostrar
-          data: factura.id
+        this.facturas = data.map((invoice: any) => ({
+          label: `${invoice.customer.name} - ${invoice.invoice_date}`, // Ajusta lo que quieres mostrar
+          data: invoice.id
         }));
       });
 }
@@ -73,9 +73,9 @@ export class CrearDetalleFacturaComponent {
   getProducto() {
     this.productoService.getAllProducto() 
       .subscribe((data: any) => {
-        this.Product = data.map((producto: any) => ({
-          label: producto.nombre, 
-          data: producto.id
+        this.Products = data.map((product: any) => ({
+          label: product.name, 
+          data: product.id
         }));
       });
   }
@@ -93,8 +93,8 @@ export class CrearDetalleFacturaComponent {
     }
 
     const formValue: DetalleFacturaI = this.form.value;
-    formValue.factura = this.form.value.factura.data;
-    formValue.producto = this.form.value.producto.data;
+    formValue.invoice = this.form.value.invoice.data;
+    formValue.product = this.form.value.product.data;
     this.detallefacturaService.createDetalleFactura(formValue).subscribe(
       () => {
         this.messageService.add({
@@ -121,10 +121,10 @@ export class CrearDetalleFacturaComponent {
     this.router.navigateByUrl('/detalles_facturas');
   }
 
-  get cantidad() { return this.form.get('cantidad'); }
-  get precio_unitario() { return this.form.get('precio_unitario'); }
+  get quantity() { return this.form.get('quantity'); }
+  get unit_price() { return this.form.get('unit_price'); }
   get subtotal() { return this.form.get('subtotal'); }
-  get factura() { return this.form.get('factura'); }
-  get producto() { return this.form.get('producto'); }
+  get invoice() { return this.form.get('invoice'); }
+  get product() { return this.form.get('product'); }
 
 }

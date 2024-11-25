@@ -28,15 +28,15 @@ export class CrearInventarioComponent implements OnInit {
   private messageService = inject(MessageService); // Inyección de MessageService
   private router = inject(Router); // Inyección de Router
   productoService = inject(ProductoService);
-  Product: TreeNode[] = [];
+  Products: TreeNode[] = [];
 
   constructor(private fb: FormBuilder) {
     this.inventarioForm = this.fb.group({
-      producto: ['', Validators.required],
-      tipo_movimiento: ['', Validators.required],
-      cantidad: ['', [Validators.required, Validators.min(1)]],
-      fecha_movimiento: ['', Validators.required],
-      observaciones: ['']
+      product: ['', Validators.required],
+      movement_type: ['', Validators.required],
+      quantity: ['', [Validators.required, Validators.min(1)]],
+      movement_date: ['', Validators.required],
+      remarks: ['']
     });
   }
 
@@ -47,9 +47,9 @@ export class CrearInventarioComponent implements OnInit {
   getProducto() {
     this.productoService.getAllProducto()
       .subscribe((data: any) => {
-        this.Product = data.map((producto: any) => ({
-          label: producto.nombre,
-          data: producto.id
+        this.Products = data.map((product: any) => ({
+          label: product.name,
+          data: product.id
         }));
       });
   }
@@ -58,7 +58,7 @@ export class CrearInventarioComponent implements OnInit {
     if (this.inventarioForm.valid) {
       // Asigna el id del producto seleccionado en el formulario
       const formValue = { ...this.inventarioForm.value };
-      formValue.producto = this.inventarioForm.value.producto.data;
+      formValue.product = this.inventarioForm.value.product.data;
 
       this.inventarioService.createInventario(formValue).subscribe({
         next: () => {

@@ -1,8 +1,8 @@
 export interface FacturaI {
     id?: number,
     total: null,
-    cliente: {
+    customer: {
         id?: number;
-        nombre: string;
+        name: string;
       };
 }

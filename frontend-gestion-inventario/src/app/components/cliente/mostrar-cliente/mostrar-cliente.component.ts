@@ -63,7 +63,7 @@ export class MostrarClienteComponent implements OnInit {
   eliminar(id: number): void {
     // Muestra el cuadro de diálogo de confirmación
     this.confirmationService.confirm({
-      message: '¿Estás seguro de que deseas eliminar este cliente?',
+      message: 'Are you sure you want to delete this customer?',
       header: 'Confirmación',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
@@ -73,7 +73,7 @@ export class MostrarClienteComponent implements OnInit {
             this.messageService.add({
               severity: 'success',
               summary: 'Éxito',
-              detail: 'Cliente eliminado correctamente',
+              detail: 'customer deleted successfully',
               life: 3000
             });
             this.mostrarClientes(); // Actualiza la lista de clientes

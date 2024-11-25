@@ -24,7 +24,7 @@ import { InputTextModule } from 'primeng/inputtext';
 export class ActualizarFacturaComponent implements OnInit{
   public id: number =0;
   //public form: FormGroup;
-  client: TreeNode[] = [];
+  customers: TreeNode[] = [];
   selectedClient: TreeNode | undefined;
 
   facturaService = inject(FacturaService);
@@ -35,7 +35,7 @@ export class ActualizarFacturaComponent implements OnInit{
   public form:FormGroup=this.formBuilder.group({
     id: [''],
     total: ['', [Validators.required]],
-    cliente: ['', [Validators.required]],
+    customer: ['', [Validators.required]],
   });
   constructor(
     // private messageService: MessageService,
@@ -55,9 +55,9 @@ export class ActualizarFacturaComponent implements OnInit{
   getClientes() {
     this.clienteService.getAllCliente() 
       .subscribe((data: any) => {
-        this.client = data.map((cliente: any) => ({
-          label: cliente.nombre, 
-          data: cliente.id
+        this.customers = data.map((customer: any) => ({
+          label: customer.name, 
+          data: customer.id
         }));
       });
   }
@@ -75,7 +75,7 @@ export class ActualizarFacturaComponent implements OnInit{
   onSubmit(): void {
     const formValue: FacturaI = this.form.value;
     const id: number =  this.form.value.id
-    formValue.cliente = this.form.value.cliente.data;
+    formValue.customer = this.form.value.customer.data;
     this.facturaService.updateFactura(id, formValue).subscribe(
       () => {
   
@@ -95,5 +95,5 @@ export class ActualizarFacturaComponent implements OnInit{
   }
 
   get total() { return this.form.get('total'); }
-  get cliente() { return this.form.get('cliente'); }
+  get customer() { return this.form.get('customer'); }
 }

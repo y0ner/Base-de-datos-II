@@ -1,4 +1,4 @@
-<p-card header="Crear Factura" [style]="{ width: '100%' }">
+<p-card header="Create Invoice" [style]="{ width: '100%' }">
     <ng-template pTemplate="header">
 
     </ng-template>
@@ -10,16 +10,16 @@
                 <div class="col-12 sm:col-6">
                     <div class="p-inputgroup mb-1">
                         <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                        <input class="w-12" type="text" pInputText formControlName="total" placeholder="Total factura"
-                            title="Total Factura">
+                        <input class="w-12" type="text" pInputText formControlName="total" placeholder="Invoice Total"
+                            title="Invoice Total">
                     </div>
                 </div>
 
                 <div class="col-12 sm:col-6">
                     <div class="p-inputgroup mb-1">
                         <span class="p-inputgroup-addon"><i class="pi pi-fw pi-qrcode"></i></span>
-                        <p-treeSelect class="md:w-10rem w-12" containerStyleClass="w-12" [options]="client"
-                            formControlName="cliente" placeholder="Seleccione un cliente" [showClear]="true"
+                        <p-treeSelect class="md:w-10rem w-12" containerStyleClass="w-12" [options]="customers"
+                            formControlName="customer" placeholder="Select a customer" [showClear]="true"
                             selectionMode="single">
                         </p-treeSelect>
                     </div>
@@ -30,10 +30,10 @@
 
 
             <div class="flex justify-content-center flex-wrap">
-                <button pButton pRipple label="Guardar" icon="pi pi-save" severity="info" class="mr-4"
+                <button pButton pRipple label="Save" icon="pi pi-save" severity="info" class="mr-4"
                     type="submit"></button>
 
-                <button pButton pRipple label="Cancelar" icon="pi pi-times-circle" severity="warning" class="mr-4"
+                <button pButton pRipple label="Cancel" icon="pi pi-times-circle" severity="warning" class="mr-4"
                     type="button" (click)="cancel()"></button>
             </div>
 

@@ -33,7 +33,9 @@ export class MostrarInventarioComponent implements OnInit {
   
   confirmarEliminacion(id: number): void {
     this.confirmationService.confirm({
-      message: '¿Está seguro de que desea eliminar este inventario?',
+      message: 'Are you sure you want to delete this invoice?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.eliminarInventario(id);
       }

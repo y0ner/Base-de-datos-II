@@ -1,65 +1,64 @@
 <p-card class="w-full h-full shadow-lg border-rounded">
-    <ng-template pTemplate="header">
+  <ng-template pTemplate="header">
       <div class="flex justify-content-between items-center">
-        <h3 class="ml-4 text-xl font-semibold text-gray-800">Registro de Detalles de Facturas</h3>
-        <div class="mt-2 mr-2">
-          <a 
-            pButton 
-            pRipple
-            label="Crear Detalle Factura" 
-            icon="pi pi-user-plus"
-            class="bg-cyan-600 text-white hover:bg-cyan-700 px-4 py-2 rounded-md"
-            [ngStyle]="{'text-decoration': 'none'}" 
-            [routerLink]="['/detalles_facturas/nuevo']">
-          </a>
-        </div>
-      </div>
-    </ng-template>
-    
-    <p>
-      <p-table [value]="detallesfacturas" class="custom-table" [rows]="10" [paginator]="true" [responsive]="true">
-        <ng-template pTemplate="header">
-          <tr>
-            <th class="p-text-center">Cantidad</th>
-            <th class="p-text-center">Precio Unitario</th>
-            <th class="p-text-center">Subtotal</th>
-            <th class="p-text-center">Factura</th>
-            <th class="p-text-center">Producto</th>
-            <th class="p-text-center">Acciones</th>
-          </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-detallesfacturas>
-          <tr>
-            <td>{{ detallesfacturas.cantidad }}</td>
-            <td>{{ detallesfacturas.precio_unitario | currency }}</td>
-            <td>{{ detallesfacturas.subtotal | currency }}</td>
-            <td>{{ detallesfacturas.descripcion }}</td>
-            <td>{{ detallesfacturas.producto.nombre }}</td>
-            <td class="flex justify-content-center space-x-2">
+          <h3 class="ml-4 text-xl font-semibold text-gray-800">Invoice Details Registry</h3>
+          <div class="mt-2 mr-2">
               <a 
-                pButton 
-                pRipple
-                icon="pi pi-sync"
-                severity="warning"
-                class="small-button p-button-rounded p-button-text"
-                [ngStyle]="{'text-decoration': 'none'}" 
-                [routerLink]="['/detalles_facturas/edit', detallesfacturas.id]">
-                Editar
+                  pButton 
+                  pRipple
+                  label="Create Invoice Detail" 
+                  icon="pi pi-user-plus"
+                  class="bg-cyan-600 text-white hover:bg-cyan-700 px-4 py-2 rounded-md"
+                  [ngStyle]="{'text-decoration': 'none'}" 
+                  [routerLink]="['/detalles_facturas/nuevo']">
               </a>
-              <button 
-                pButton 
-                pRipple
-                severity="danger"
-                icon="pi pi-trash"
-                class="small-button p-button-rounded p-button-text"
-                (click)="eliminar(detallesfacturas.id)">
-                Eliminar
-              </button>
-            </td>
-          </tr>
-        </ng-template>
-      </p-table>
-    </p>
-    <p-confirmDialog></p-confirmDialog>
-  </p-card>
+          </div>
+      </div>
+  </ng-template>
   
+  <p>
+      <p-table [value]="detallesfacturas" class="custom-table" [rows]="10" [paginator]="true" [responsive]="true">
+          <ng-template pTemplate="header">
+              <tr>
+                  <th class="p-text-center">Quantity</th>
+                  <th class="p-text-center">Unit Price</th>
+                  <th class="p-text-center">Subtotal</th>
+                  <th class="p-text-center">Invoice</th>
+                  <th class="p-text-center">Product</th>
+                  <th class="p-text-center">Actions</th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-detallesfacturas>
+              <tr>
+                  <td>{{ detallesfacturas.quantity }}</td>
+                  <td>{{ detallesfacturas.unit_price | currency }}</td>
+                  <td>{{ detallesfacturas.subtotal | currency }}</td>
+                  <td>{{ detallesfacturas.description }}</td>
+                  <td>{{ detallesfacturas.product.name }}</td>
+                  <td class="flex justify-content-center space-x-2">
+                      <a 
+                          pButton 
+                          pRipple
+                          icon="pi pi-sync"
+                          severity="warning"
+                          class="small-button p-button-rounded p-button-text"
+                          [ngStyle]="{'text-decoration': 'none'}" 
+                          [routerLink]="['/detalles_facturas/edit', detallesfacturas.id]">
+                          Edit
+                      </a>
+                      <button 
+                          pButton 
+                          pRipple
+                          severity="danger"
+                          icon="pi pi-trash"
+                          class="small-button p-button-rounded p-button-text"
+                          (click)="eliminar(detallesfacturas.id)">
+                          Delete
+                      </button>
+                  </td>
+              </tr>
+          </ng-template>
+      </p-table>
+  </p>
+  <p-confirmDialog></p-confirmDialog>
+</p-card>

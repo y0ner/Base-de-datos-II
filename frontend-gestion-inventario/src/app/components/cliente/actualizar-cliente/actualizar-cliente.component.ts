@@ -27,9 +27,9 @@ export class ActualizarClienteComponent implements OnInit{
 
   public form:FormGroup=this.formBuilder.group({
     id: [''],
-    nombre: ['', [Validators.required]],
-    direccion: ['', [Validators.required]],
-    telefono: ['', [Validators.required]],
+    name: ['', [Validators.required]],
+    address: ['', [Validators.required]],
+    phone: ['', [Validators.required]],
     email: ['', [Validators.required]],
   });
   
@@ -82,8 +82,8 @@ export class ActualizarClienteComponent implements OnInit{
     this.router.navigateByUrl('/clientes');
   }
 
-  get nombre() { return this.form.get('nombre'); }
-  get direccion() { return this.form.get('direccion'); }
-  get telefono() { return this.form.get('telefono'); }
+  get name() { return this.form.get('name'); }
+  get address() { return this.form.get('address'); }
+  get phone() { return this.form.get('phone'); }
   get email() { return this.form.get('email'); }
 }

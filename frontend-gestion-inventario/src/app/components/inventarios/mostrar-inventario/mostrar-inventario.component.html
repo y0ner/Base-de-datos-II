@@ -1,12 +1,12 @@
 <p-card class="w-20 h-full">
     <ng-template pTemplate="header">
         <div class="flex justify-content-between items-center">
-            <h3 class="ml-4 text-xl font-semibold text-gray-800">Registro de Inventarios</h3>
+            <h3 class="ml-4 text-xl font-semibold text-gray-800">Inventory Records</h3>
             <div class="mt-2">
                 <a 
                     pButton 
                     pRipple
-                    label="Crear Inventario" 
+                    label="Create Inventory"
                     icon="pi pi-plus"
                     class="bg-cyan-600 text-white hover:bg-cyan-700 px-4 py-2 rounded-md"
                     [ngStyle]="{'text-decoration': 'none'}" 
@@ -19,21 +19,21 @@
         <p-table [value]="inventarios" class="custom-table" [rows]="10" [paginator]="true" [responsive]="true">
             <ng-template pTemplate="header">
                 <tr>
-                    <th>Producto</th>
-                    <th>Tipo de Movimiento</th>
-                    <th>Cantidad</th>
-                    <th>Fecha Movimiento</th>
-                    <th>Observaciones</th>
-                    <th class="flex justify-content-center flex-wrap">Acciones</th>
+                    <th>Product</th>
+                    <th>Movement Type</th>
+                    <th>Quantity</th>
+                    <th>Movement Date</th>
+                    <th>Remarks</th>
+                    <th class="flex justify-content-center flex-wrap">Actions</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-inventario>
                 <tr>
-                    <td>{{ inventario.producto.nombre }}</td>
-                    <td>{{ inventario.tipo_movimiento }}</td>
-                    <td>{{ inventario.cantidad }}</td>
-                    <td>{{ inventario.fecha_movimiento | date }}</td>
-                    <td>{{ inventario.observaciones }}</td>
+                    <td>{{ inventario.product.name }}</td>
+                    <td>{{ inventario.movement_type }}</td>
+                    <td>{{ inventario.quantity }}</td>
+                    <td>{{ inventario.movement_date | date }}</td>
+                    <td>{{ inventario.remarks }}</td>
                     <td class="flex justify-content-center space-x-2">
                         <!-- Botón de editar -->
                         <a 
@@ -44,7 +44,7 @@
                             class="small-button p-button-rounded p-button-text"
                             [ngStyle]="{'text-decoration': 'none'}" 
                             [routerLink]="['/inventarios/edit', inventario.id]">
-                            Editar
+                            
                         </a>
                         
                         <!-- Botón de eliminar -->
@@ -55,7 +55,7 @@
                             icon="pi pi-trash"
                             class="small-button p-button-rounded p-button-text"
                             (click)="confirmarEliminacion(inventario.id)">
-                            Eliminar
+                            
                         </button>
                     </td>
                 </tr>
