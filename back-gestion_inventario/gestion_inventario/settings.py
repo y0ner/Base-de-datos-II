@@ -37,15 +37,25 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'django_extensions',
-    'corsheaders',
-    'MisApps.categorias',
-    'MisApps.productos',
-    'MisApps.clientes',
-    'MisApps.detalles_facturas',
-    'MisApps.facturas',
-    'MisApps.inventarios',
+
+    'rest_framework',  # Django REST Framework: for building APIs in Django
+    'django_extensions',  # Django Extensions: provides additional management commands and utilities
+    'corsheaders',  # CORS Headers: handles Cross-Origin Resource Sharing (CORS) for secure API requests
+
+    # 'MisApps.categorias',
+    # 'MisApps.productos',
+    # 'MisApps.clientes',
+    # 'MisApps.detalles_facturas',
+    # 'MisApps.facturas',
+    # 'MisApps.inventarios',
+
+    # Custom apps
+    'MyApps.customers',
+    'MyApps.categories',
+    'MyApps.products',
+    'MyApps.invoices',
+    'MyApps.invoice_details',
+    'MyApps.inventories',
 ]
 
 REST_FRAMEWORK = {
@@ -112,8 +122,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'gestion_inventario',
-        'USER': 'isaza',
-        'PASSWORD': 'Root@24!',
+        'USER': 'dairo',
+        'PASSWORD': 'Dairo@123',
         'HOST': 'localhost',
         'PORT': '3306'
 
